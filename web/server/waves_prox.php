@@ -17,7 +17,7 @@
         return $output;
     }
 
-    if ($_GET["place"] == "ashdod") {
+    if ($_GET["place"] === "ashdod") {
         $str = httpGet("http://www.israports.co.il/_layouts/IsraelPorts/WaveHeight/Ashdodw-ipa.html");
     } else {
         $str = httpGet("http://www.israports.co.il/_layouts/IsraelPorts/WaveHeight/Haifaw-ipa.html");

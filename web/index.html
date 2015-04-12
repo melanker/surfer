@@ -16,15 +16,28 @@
 </head>
 <meta charset="utf-8">
 <body>
+    <nav class="navbar navbar-inverse headerNav">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#"></a>
+            </div>
+
+        </div><!-- /.container-fluid -->
+    </nav>
     <div class="content container-fluid">
         <div class="row ">
             <div class="col-md-6 col-xs-6 .col-sm-6 col-lg-6">
-                <span class="title">מצוף אשדוד</span>
-                <div id="ashdodChart""></div>
+                <div id="ashdodChart"></div>
+            <div class="ashdodLoading">
+                <img src="styles/img/loading.gif"/>
             </div>
-            <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6>
-                <span class="title">מצוף חיפה</span>
+            </div>
+            <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6">
                 <div id="haifaChart"></div>
+                <div class="haifaLoading">
+                    <img src="styles/img/loading.gif"/>
+                </div>
             </div>
         </div>
     </div>

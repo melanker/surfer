@@ -2,11 +2,13 @@ $(function (){
     var webApp = {
         charts: {
             ashdodData: {
+                loadingJq: $(".ashdodLoading"),
                 title: "Ashdod",
                 day: "",
                 data: []
             },
             haifaData: {
+                loadingJq: $(".haifaLoading"),
                 title: "Haifa",
                 day: "",
                 data: []
@@ -26,10 +28,6 @@ $(function (){
             dataLength = webApp.charts[name + "Data"].data.length,
             chartData = webApp.charts[name + "Data"].data;
 
-        if (name === "ashdod") {
-
-        }
-
         for (var i = 1; i < dataLength; i += 1) {
             dataHmax.push(chartData[i].hMax);
             dataHs.push(chartData[i].hS);
@@ -37,36 +35,65 @@ $(function (){
         }
 
         $(idAndClassesMap[name + "Chart"]).highcharts({
+            chart: {
+                type: 'areaspline'
+            },
             title: {
-                text: 'Average fruit consumption during one week'
+                text: webApp.charts[name + "Data"].data[0].day + "  " + webApp.charts[name + "Data"].title || webApp.charts[name + "Data"].title
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'left',
+                verticalAlign: 'top',
+                x: 150,
+                y: 100,
+                floating: true,
+                borderWidth: 1,
+                backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
             },
             xAxis: {
                 categories: dataTime
+            },
+            yAxis: {
+                title: {
+                    text: 'Height[meter]'
+                }
+            },
+            tooltip: {
+                shared: true,
+                valueSuffix: ' meter'
+            },
+            credits: {
+                enabled: false
+            },
+            plotOptions: {
+                areaspline: {
+                    fillOpacity: 0.5
+                }
             },
             series: [{
                 name: 'Wave Max',
                 data: dataHmax
             }, {
-                name: 'Wave sig',
+                name: 'Wave Significant(High probability)',
                 data: dataHs
             }]
         });
-
     };
 
 
     var communication = {
         http: function (url, method) {
-                var deffered = $.Deferred();
+            var deffered = $.Deferred();
 
-                $.ajax({
-                    url: url,
-                    type: method,
-                    success: function (data) {
-                        deffered.resolve(data);
-                    }
-                });
-                return deffered.promise();
+            $.ajax({
+                url: url,
+                type: method,
+                success: function (data) {
+                    deffered.resolve(data);
+                }
+            });
+            return deffered.promise();
         }
     };
 
@@ -93,7 +120,7 @@ $(function (){
         buildData = function(url) {
             var deffered = $.Deferred();
 
-            communication.http("/server/waves_prox.php?place='ashdod'", 'GET').then(function(data) {
+            communication.http(url, 'GET').then(function(data) {
                 var todayWaves = [];
 
                 $.each($(data).find("table").eq(0).find('tr'), function(key, val) {
@@ -105,18 +132,21 @@ $(function (){
             return deffered.promise();
         };
 
-        buildData("/server/waves_prox.php?place='ashdod'").then(function(data) {
+        buildData("/server/waves_prox.php?place=ashdod").then(function(data) {
             webApp.charts.ashdodData.data = data;
             updateChart("ashdod");
+            webApp.charts.ashdodData.loadingJq.hide();
         });
-        buildData("/server/waves_prox.php?place='haifa'").then(function(data) {
+        buildData("/server/waves_prox.php?place=haifa").then(function(data) {
             webApp.charts.haifaData.data = data;
+            updateChart("haifa");
+            webApp.charts.haifaData.loadingJq.hide();
         });
 
     };
 
     var buildChart = function(chartId) {
-       return $(chartId).highcharts({
+        $(chartId).highcharts({
             chart: {
                 type: 'areaspline'
             },
@@ -134,15 +164,7 @@ $(function (){
                 backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
             },
             xAxis: {
-                categories: [
-                    'Monday',
-                    'Tuesday',
-                    'Wednesday',
-                    'Thursday',
-                    'Friday',
-                    'Saturday',
-                    'Sunday'
-                ],
+                categories: dataTime,
                 plotBands: [{ // visualize the weekend
                     from: 4.5,
                     to: 6.5,
@@ -151,12 +173,12 @@ $(function (){
             },
             yAxis: {
                 title: {
-                    text: 'Fruit units'
+                    text: 'Height[meter]'
                 }
             },
             tooltip: {
                 shared: true,
-                valueSuffix: ' units'
+                valueSuffix: ' meter'
             },
             credits: {
                 enabled: false
@@ -168,18 +190,17 @@ $(function (){
             },
             series: [{
                 name: 'Wave Max',
-                data: [3, 4, 3, 5, 4, 10, 12]
+                data: dataHmax
             }, {
-                name: 'Wave sig',
-                data: [1, 3, 4, 3, 3, 5, 4]
+                name: 'Wave Significant(High probability)',
+                data: dataHs
             }]
         });
     };
 
-    //setInterval(updateWaveInfo, 1000);
     var initFunction = function (){
-        buildChart(idAndClassesMap.ashdodChart);
-        buildChart(idAndClassesMap.haifaChart);
+        webApp.charts.ashdodData.loadingJq.show();
+        webApp.charts.haifaData.loadingJq.show();
         updateWaveInfo();
     } ();
 
