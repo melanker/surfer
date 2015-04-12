@@ -1,0 +1,9 @@
+Options +FollowSymLinks
+RewriteEngine On
+RewriteBase /
+
+RewriteRule ^Netanya/ /sub/city.html [L]
+RewriteRule ^Tel-Aviv/ /sub/city.html [L]
+RewriteRule ^Herzliya/ /sub/city.html [L]
+RewriteRule ^Haifa/ /sub/city.html [L]
+RewriteRule ^Ashdod/ /sub/city.html [L]

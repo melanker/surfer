@@ -1,5 +1,15 @@
 $(function (){
-    var webApp = {
+    var webApp, idAndClassesMap, updateChart, communication, updateWaveInfo, updateWaveInfo, buildChart, initFunction;
+
+    idAndClassesMap = {
+        ashdodChart: "#ashdodChart",
+        haifaChart: "#haifaChart",
+        ashdodStatus: ".ashdodStatus",
+        haifaStatus: ".haifaStatus",
+        upperNav: ".upperNav"
+    };
+
+    webApp = {
         charts: {
             ashdodData: {
                 loadingJq: $(".ashdodLoading"),
@@ -16,22 +26,20 @@ $(function (){
         }
     };
 
-    var idAndClassesMap = {
-        ashdodChart: "#ashdodChart",
-        haifaChart: "#haifaChart"
-    };
 
-    var updateChart = function(name) {
-        var dataHmax = [],
-            dataHs = [],
-            dataTime = [],
-            dataLength = webApp.charts[name + "Data"].data.length,
+
+    updateChart = function(name) {
+        var dataLength = webApp.charts[name + "Data"].data.length,
             chartData = webApp.charts[name + "Data"].data;
 
+        webApp.charts[name + "Data"].dataHmax = [];
+        webApp.charts[name + "Data"].dataHs = [];
+        webApp.charts[name + "Data"].dataTime = [];
+
         for (var i = 1; i < dataLength; i += 1) {
-            dataHmax.push(chartData[i].hMax);
-            dataHs.push(chartData[i].hS);
-            dataTime.push(chartData[i].time);
+            webApp.charts[name + "Data"].dataHmax.push(chartData[i].hMax);
+            webApp.charts[name + "Data"].dataHs.push(chartData[i].hS);
+            webApp.charts[name + "Data"].dataTime.push(chartData[i].time);
         }
 
         $(idAndClassesMap[name + "Chart"]).highcharts({
@@ -41,18 +49,8 @@ $(function (){
             title: {
                 text: webApp.charts[name + "Data"].data[0].day + "  " + webApp.charts[name + "Data"].title || webApp.charts[name + "Data"].title
             },
-            legend: {
-                layout: 'vertical',
-                align: 'left',
-                verticalAlign: 'top',
-                x: 150,
-                y: 100,
-                floating: true,
-                borderWidth: 1,
-                backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
-            },
             xAxis: {
-                categories: dataTime
+                categories: webApp.charts[name + "Data"].dataTime
             },
             yAxis: {
                 title: {
@@ -73,16 +71,16 @@ $(function (){
             },
             series: [{
                 name: 'Wave Max',
-                data: dataHmax
+                data: webApp.charts[name + "Data"].dataHmax
             }, {
                 name: 'Wave Significant(High probability)',
-                data: dataHs
+                data: webApp.charts[name + "Data"].dataHs
             }]
         });
     };
 
 
-    var communication = {
+    communication = {
         http: function (url, method) {
             var deffered = $.Deferred();
 
@@ -97,8 +95,8 @@ $(function (){
         }
     };
 
-    var updateWaveInfo = function () {
-        var parseHtml, buildData;
+    updateWaveInfo = function () {
+        var parseHtml, buildData, initiateUpdateSeq;
 
         parseHtml = function(rowJq, day) {
             var currentRowJq = rowJq.find('td'),
@@ -132,20 +130,27 @@ $(function (){
             return deffered.promise();
         };
 
+        initiateUpdateSeq = function(data, name) {
+            var heightJq = $(idAndClassesMap[name + "Status"] + " .height" ),
+                timeJq = $(idAndClassesMap[name + "Status"] + " .time");
+
+            webApp.charts[name + "Data"].data = data;
+            updateChart(name);
+            heightJq.text(webApp.charts[name + "Data"].dataHs[webApp.charts[name + "Data"].dataHs.length - 1] + "m" + " - " +
+                          webApp.charts[name + "Data"].dataHmax[webApp.charts[name + "Data"].dataHmax.length - 1] + "m");
+            timeJq.text(webApp.charts[name + "Data"].dataTime[webApp.charts[name + "Data"].dataTime.length - 1] + "," +  webApp.charts[name + "Data"].data[0].day)
+            webApp.charts[name + "Data"].loadingJq.hide();
+        };
+
         buildData("/server/waves_prox.php?place=ashdod").then(function(data) {
-            webApp.charts.ashdodData.data = data;
-            updateChart("ashdod");
-            webApp.charts.ashdodData.loadingJq.hide();
+            initiateUpdateSeq(data, "ashdod");
         });
         buildData("/server/waves_prox.php?place=haifa").then(function(data) {
-            webApp.charts.haifaData.data = data;
-            updateChart("haifa");
-            webApp.charts.haifaData.loadingJq.hide();
+            initiateUpdateSeq(data, "haifa");
         });
-
     };
 
-    var buildChart = function(chartId) {
+    buildChart = function(chartId) {
         $(chartId).highcharts({
             chart: {
                 type: 'areaspline'
@@ -154,17 +159,9 @@ $(function (){
                 text: 'Average fruit consumption during one week'
             },
             legend: {
-                layout: 'vertical',
-                align: 'left',
-                verticalAlign: 'top',
-                x: 150,
-                y: 100,
-                floating: true,
-                borderWidth: 1,
-                backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
             },
             xAxis: {
-                categories: dataTime,
+                categories: webApp.charts[name + "Data"].dataTime,
                 plotBands: [{ // visualize the weekend
                     from: 4.5,
                     to: 6.5,
@@ -190,15 +187,47 @@ $(function (){
             },
             series: [{
                 name: 'Wave Max',
-                data: dataHmax
+                data: webApp.charts[name + "Data"].dataHmax
             }, {
                 name: 'Wave Significant(High probability)',
-                data: dataHs
+                data: webApp.charts[name + "Data"].dataHs
             }]
         });
     };
 
-    var initFunction = function (){
+
+
+    initFunction = function () {
+        var toggleTab = function () {
+
+            var upperNavJq = $(idAndClassesMap.upperNav),
+                liJq = upperNavJq.find("li"),
+                locationPath = window.location.pathname.replace(/\//g,'');
+
+            upperNavJq.find(".active").removeClass("active");
+
+            switch (locationPath) {
+                case "Netanya":
+                    liJq.eq(2).tab('show');
+                    break;
+                case "Haifa":
+                    liJq.eq(1).tab('show');
+                    break;
+                case "Herzliya":
+                    liJq.eq(3).tab('show');
+                    break;
+                case "Tel-Aviv":
+                    liJq.eq(4).tab('show');
+                    break;
+                case "Ashdod":
+                    liJq.eq(5).tab('show');
+                    break;
+                default:
+                    liJq.eq(0).tab('show');
+            }
+        };
+
+        toggleTab();
         webApp.charts.ashdodData.loadingJq.show();
         webApp.charts.haifaData.loadingJq.show();
         updateWaveInfo();

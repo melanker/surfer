@@ -1,5 +1,38 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+/******** + Sticky Footer ********/
+#content {
+  min-height: 100%;
+  margin-bottom: -100px; /* Equivalent to footer's height */
+  padding-bottom: 100px; /* Equivalent to footer's height */
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#footer {
+  height: 100px;
+  position: relative;
+  z-index: 1;
+  background-color: #333;
+  color: azure;
+
+  .copyRights {
+    position: absolute;
+    top: 40px;
+    left: 30px
+  }
+}
+/******** - Sticky Footer ********/
+
 .headerNav {
   height: 120px;
+  margin-bottom: 0;
   
   .navbar-header a {
     margin-top: 16px;
@@ -8,8 +41,38 @@
     width: 468px;
     height: 83px;
   }
-}
 
+  .status {
+    float: right;
+    font-weight: bold;
+    height: 115px;
+    color: azure;
+    font-size: 18px;
+    text-align: right;
+
+    .ashdodStatus, .haifaStatus {
+      margin: 10px 10px 0 0;
+      cursor: pointer;
+      transition: color 0.5s ease;
+      display: inline-block;
+      height: inherit;
+      width: 110px;
+
+      &:hover {
+        color: #ed0000;
+      }
+
+      div {
+        height: 22px;
+
+        &.height, &.time {
+          font-weight: normal;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
 
 .ashdodLoading, .haifaLoading {
   display: none;
@@ -28,3 +91,30 @@
     margin-top: 5%;
   }
 }
+
+ul.upperNav {
+
+    a {
+      font-weight: bold;
+      font-size: 14px;
+
+      &:hover {
+        transition: color 0.4s;
+        color: #31b0d5;
+        background-color: transparent;
+      }
+    }
+    .active {
+      a {
+        color: #31b0d5 !important;
+        background-color: transparent !important;
+      }
+    }
+
+}
+
+.spacer {
+  height: 40px;
+  width: 100%;
+}
+
