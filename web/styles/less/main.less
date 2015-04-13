@@ -1,14 +1,14 @@
 html, body {
   height: 100%;
   width: 100%;
-  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-family: 'almoni-dl-regular', Arial;
 }
 
 /******** + Sticky Footer ********/
 #content {
   min-height: 100%;
-  margin-bottom: -100px; /* Equivalent to footer's height */
-  padding-bottom: 100px; /* Equivalent to footer's height */
+  margin-bottom: -50px; /* Equivalent to footer's height */
+  padding-bottom: 50px; /* Equivalent to footer's height */
 
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -16,7 +16,7 @@ html, body {
 }
 
 #footer {
-  height: 100px;
+  height: 50px;
   position: relative;
   z-index: 1;
   background-color: #333;
@@ -24,7 +24,7 @@ html, body {
 
   .copyRights {
     position: absolute;
-    top: 40px;
+    top: 20px;
     left: 30px
   }
 }
@@ -113,8 +113,41 @@ ul.upperNav {
 
 }
 
+.weatherCurrent {
+  display: none;
+
+  .title {
+    height: 80px;
+    div {
+      display: inline-block;
+      font-size: 35px;
+
+      &.cloudsImg {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+  }
+
+  .direction {
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    top: 6px;
+    position: relative;
+  }
+
+}
+
 .spacer {
   height: 40px;
   width: 100%;
+}
+
+.jumbotron {
+  h1, p {
+    text-align: right;
+  }
 }
 
