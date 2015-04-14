@@ -1,24 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="he">
     <meta charset="utf-8">
     <head>
-        <script src="/vendor/jquery-2.1.3.min.js"></script>
-        <!--<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>-->
+        <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
         <script src="/vendor/highcharts.src.js"></script>
         <script src="/vendor/highcharts-more.src.js"></script>
-        <link rel="stylesheet" href="/vendor/bootstrap-3.3.4-dist/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="/vendor/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css" />
-        <script src="vendor/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
-        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">-->
-        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">-->
-        <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>-->
-        <script src="/js/base.js"></script>
-        <script src="/js/main.js"></script>
-        <!--<script src="js/main.min.js"></script>-->
+        <!--<link rel="stylesheet" href="/vendor/bootstrap-3.3.4-dist/css/bootstrap.min.css" />-->
+        <!--<link rel="stylesheet" href="/vendor/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css" />-->
+        <!--<script src="vendor/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="/js/base.min.js"></script>
+        <script src="/js/main.min.js"></script>
         <link rel="stylesheet" href="/styles/css/reset.css">
-        <!--<link rel="stylesheet" href="styles/css/main.css">-->
-        <link rel="stylesheet/less" type="text/css" href="/styles/less/main.less" />
-        <script type="text/javascript" src="/vendor/less.js-master/dist/less.min.js"></script>
+        <link rel="stylesheet" href="/styles/css/main.css">
         <title>Israel Waves</title>
     </head>
     <body>
@@ -45,6 +41,7 @@
         </nav>
         <ul class="nav nav-pills upperNav">
             <li class="active dashboard"><a href="/">ראשי</a></li>
+            <li class="nahariya"><a href="/Nahariya/">נהריה</a></li>
             <li class="haifa"><a href="/Haifa/">חיפה</a></li>
             <li class="netanya"><a href="/Netanya/">נתניה</a></li>
             <li class="herzliya"><a href="/Herzliya/">הרצליה</a></li>
@@ -54,10 +51,10 @@
         <div class="spacer"></div>
 
         <div class="container-fluid">
-            <div class="jumbotron">
+            <div class="jumbotron" dir="rtl">
                 <h1>פתוח לקהל הגולשים</h1>
                 <p>
-                    מידע בזמן אמת ממצוף חיפה ואשדוד דיווח רוח וטמפרטורה
+                    מידע בזמן אמת ממצופי חיפה ואשדוד דיווח רוח וטמפרטורה
                 </p>
             </div>
             <div class="row">
@@ -76,7 +73,7 @@
             </div>
         </div>
     </div>
-    <div id="footer">
+    <div id="footer" dir="ltr">
         <div class="copyRights">&copy 2015 Israel Waves. All rights reserved.</div>
     </div>
     </body>

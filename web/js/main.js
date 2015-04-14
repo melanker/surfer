@@ -174,19 +174,22 @@ $(function (){
 
             switch (locationPath) {
                 case "Netanya":
-                    liJq.eq(2).tab('show');
-                    break;
-                case "Haifa":
-                    liJq.eq(1).tab('show');
-                    break;
-                case "Herzliya":
                     liJq.eq(3).tab('show');
                     break;
-                case "Tel-Aviv":
+                case "Nahariya":
+                    liJq.eq(1).tab('show');
+                    break;
+                case "Haifa":
+                    liJq.eq(2).tab('show');
+                    break;
+                case "Herzliya":
                     liJq.eq(4).tab('show');
                     break;
-                case "Ashdod":
+                case "Tel-Aviv":
                     liJq.eq(5).tab('show');
+                    break;
+                case "Ashdod":
+                    liJq.eq(6).tab('show');
                     break;
                 default:
                     liJq.eq(0).tab('show');

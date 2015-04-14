@@ -74,8 +74,7 @@ html, body {
   }
 }
 
-.ashdodLoading, .haifaLoading {
-  display: none;
+.ashdodLoading, .haifaLoading, .loading {
   position: absolute;
   z-index: 44;
   top: 0;
@@ -123,7 +122,7 @@ ul.upperNav {
       font-size: 35px;
 
       &.cloudsImg {
-        width: 40px;
+        width: 50px;
         height: 40px;
       }
     }
@@ -145,9 +144,31 @@ ul.upperNav {
   width: 100%;
 }
 
+.imgContainer {
+  width: 400px;
+  margin: auto;
+
+  #imgStat {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+
 .jumbotron {
-  h1, p {
-    text-align: right;
+  &.details {
+    margin-top: 80px;
+
+    h1 {
+      font-weight: bold;
+      font-size: 22px;
+    }
+    p {
+      font-size: 17px;
+    }
+    span {
+      font-size: 10px;
+    }
   }
 }
 
