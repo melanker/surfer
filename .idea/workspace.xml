@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/web/js/main.js" line="16" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="6799b4d5-732a-48fb-b528-7c7c0536088c" name="Default" comment="" />
     <ignored path="surfer.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path=".idea/dataSources.local.xml" />
-    <file path="/index.html" changelist="6799b4d5-732a-48fb-b528-7c7c0536088c" time="1428936114657" ignored="false" />
-    <file path="/main.less" changelist="6799b4d5-732a-48fb-b528-7c7c0536088c" time="1428936589920" ignored="false" />
-    <file path="/main.js" changelist="6799b4d5-732a-48fb-b528-7c7c0536088c" time="1428925311931" ignored="false" />
-    <file path="/a.dummy" changelist="6799b4d5-732a-48fb-b528-7c7c0536088c" time="1428914621678" ignored="false" />
+    <file path="/index.html" changelist="6799b4d5-732a-48fb-b528-7c7c0536088c" time="1429106019940" ignored="false" />
+    <file path="/main.less" changelist="6799b4d5-732a-48fb-b528-7c7c0536088c" time="1429111074628" ignored="false" />
+    <file path="/main.js" changelist="6799b4d5-732a-48fb-b528-7c7c0536088c" time="1429104278761" ignored="false" />
+    <file path="/a.dummy" changelist="6799b4d5-732a-48fb-b528-7c7c0536088c" time="1429088779753" ignored="false" />
     <file path="/netanya.html" changelist="6799b4d5-732a-48fb-b528-7c7c0536088c" time="1428847687101" ignored="false" />
-    <file path="/.htaccess" changelist="6799b4d5-732a-48fb-b528-7c7c0536088c" time="1428846094405" ignored="false" />
-    <file path="/city.js" changelist="6799b4d5-732a-48fb-b528-7c7c0536088c" time="1428940011102" ignored="false" />
+    <file path="/.htaccess" changelist="6799b4d5-732a-48fb-b528-7c7c0536088c" time="1429027595092" ignored="false" />
+    <file path="/city.js" changelist="6799b4d5-732a-48fb-b528-7c7c0536088c" time="1429112763638" ignored="false" />
     <file path="/base.js" changelist="6799b4d5-732a-48fb-b528-7c7c0536088c" time="1428930393212" ignored="false" />
-    <file path="/city.html" changelist="6799b4d5-732a-48fb-b528-7c7c0536088c" time="1428934921178" ignored="false" />
+    <file path="/city.html" changelist="6799b4d5-732a-48fb-b528-7c7c0536088c" time="1429112034925" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +29,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -69,6 +65,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -79,63 +76,36 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/index.html">
+        <entry file="file://$PROJECT_DIR$/web/mobile/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="33" selection-start="2947" selection-end="2956" vertical-scroll-proportion="-26.26923">
+            <state line="59" column="54" selection-start="3243" selection-end="3243" vertical-scroll-proportion="-16.23077">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="city.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/sub/city.html">
+        <entry file="file://$PROJECT_DIR$/web/mobile/sub/city.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="81" column="50" selection-start="3810" selection-end="3810" vertical-scroll-proportion="-32.03846">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="city.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/js/city.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="86" column="32" selection-start="4664" selection-end="4664" vertical-scroll-proportion="0.85104054">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="133" column="52" selection-start="4359" selection-end="4359" vertical-scroll-proportion="-17.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/base.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="31" selection-start="300" selection-end="300" vertical-scroll-proportion="0.0">
+            <state line="51" column="60" selection-start="2894" selection-end="2894" vertical-scroll-proportion="-14.269231">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="main.less" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/styles/less/main.less">
+        <entry file="file://$PROJECT_DIR$/web/mobile/styles/less/main.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="20" selection-start="1174" selection-end="1174" vertical-scroll-proportion="0.0">
+            <state line="102" column="26" selection-start="1932" selection-end="1932" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="waves_prox.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/server/waves_prox.php">
+      <file leaf-file-name="main.less" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/styles/less/main.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="24" selection-start="447" selection-end="522" vertical-scroll-proportion="-13.076923">
+            <state line="140" column="19" selection-start="2268" selection-end="2268" vertical-scroll-proportion="0.31844217">
               <folding />
             </state>
           </provider>
@@ -152,15 +122,20 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/web/styles/css/main.css" />
-        <option value="$PROJECT_DIR$/web/js/main.min.js" />
-        <option value="$PROJECT_DIR$/web/sub_html/netanya.html" />
-        <option value="$PROJECT_DIR$/web/netanya.html" />
         <option value="$PROJECT_DIR$/web/.htaccess" />
-        <option value="$PROJECT_DIR$/web/js/base.js" />
-        <option value="$PROJECT_DIR$/web/js/main.js" />
-        <option value="$PROJECT_DIR$/web/sub/city.html" />
+        <option value="$PROJECT_DIR$/web/mobile/css/main.css.html" />
+        <option value="$PROJECT_DIR$/web/mobile/css/main.css" />
+        <option value="$PROJECT_DIR$/web/mobile/css/main.less" />
         <option value="$PROJECT_DIR$/web/index.html" />
         <option value="$PROJECT_DIR$/web/styles/less/main.less" />
+        <option value="$PROJECT_DIR$/web/mobile/js/main.js" />
+        <option value="$PROJECT_DIR$/web/sub/city.html" />
+        <option value="$PROJECT_DIR$/web/mobile/index.html" />
+        <option value="$PROJECT_DIR$/web/mobile/styles/less/main.less" />
+        <option value="$PROJECT_DIR$/web/mobile/sub/city.html" />
+        <option value="$PROJECT_DIR$/web/mobile/js/city.js" />
+        <option value="$PROJECT_DIR$/web/js/main.js" />
+        <option value="$PROJECT_DIR$/web/js/base.js" />
         <option value="$PROJECT_DIR$/web/js/city.js" />
       </list>
     </option>
@@ -179,7 +154,7 @@
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
-    <option name="height" value="1096" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -234,15 +209,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane />
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Tests" />
-        <subPane subId="Production" />
-        <subPane subId="Project Files" />
-        <subPane subId="All" />
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -289,7 +255,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="styles" />
+              <option name="myItemId" value="sub" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -311,7 +277,135 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
+              <option name="myItemId" value="less" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="surfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="surfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="styles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="surfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="surfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mobile" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="surfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="surfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mobile" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="surfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="surfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mobile" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="styles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="less" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="surfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="surfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mobile" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="styles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="surfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="surfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mobile" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -334,6 +428,15 @@
             </PATH_ELEMENT>
           </PATH>
         </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Tests" />
+        <subPane subId="Production" />
+        <subPane subId="Project Files" />
+        <subPane subId="All" />
+      </pane>
+      <pane id="PackagesPane">
+        <subPane />
       </pane>
     </panes>
   </component>
@@ -360,9 +463,12 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\projects\surfer\web\mobile\js" />
+      <recent name="D:\projects\surfer\web\mobile\css" />
       <recent name="D:\projects\surfer\web" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\projects\surfer\web\mobile\styles\less" />
       <recent name="D:\projects\surfer\web\sub_html" />
       <recent name="D:\surfer\web" />
       <recent name="D:\surfer\web\js" />
@@ -566,7 +672,7 @@
     </configuration>
     <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
       <JSDebuggerConfigurationSettings>
-        <option name="engineId" />
+        <option name="engineId" value="embedded" />
         <option name="fileUrl" />
       </JSDebuggerConfigurationSettings>
       <method />
@@ -635,13 +741,12 @@
     <option name="totallyTimeSpent" value="7542000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35569754" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -656,15 +761,16 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16435432" sideWeight="0.6443024" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1430096" sideWeight="0.6443024" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -743,110 +849,110 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/js/main.js">
+    <entry file="file://$PROJECT_DIR$/web/js/main.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="0" column="3397" selection-start="3397" selection-end="3397" vertical-scroll-proportion="0.0">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/server/waves_prox.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/styles/css/reset.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/styles/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="909" selection-start="909" selection-end="909" vertical-scroll-proportion="0.0">
+        <state line="0" column="2171" selection-start="2171" selection-end="2171" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/base.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/sub/city.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="62" selection-start="3973" selection-end="3973" vertical-scroll-proportion="0.5383707">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="39" selection-start="259" selection-end="259" vertical-scroll-proportion="0.14895947">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/main.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="2922" selection-start="2922" selection-end="2922" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/styles/img/sa-sprite.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/base.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="31" selection-start="300" selection-end="300" vertical-scroll-proportion="0.0">
+        <state line="20" column="30" selection-start="2653" selection-end="2653" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="33" selection-start="2947" selection-end="2956" vertical-scroll-proportion="-26.26923">
+        <state line="6" column="0" selection-start="220" selection-end="543" vertical-scroll-proportion="0.12042503">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/sub/city.html">
+    <entry file="file://$PROJECT_DIR$/web/mobile/styles/less/main.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="50" selection-start="3810" selection-end="3810" vertical-scroll-proportion="-32.03846">
+        <state line="102" column="26" selection-start="1932" selection-end="1932" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/server/waves_prox.php">
+    <entry file="file://$PROJECT_DIR$/web/mobile/sub/city.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="24" selection-start="447" selection-end="522" vertical-scroll-proportion="-13.076923">
+        <state line="51" column="60" selection-start="2894" selection-end="2894" vertical-scroll-proportion="-14.269231">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/styles/less/main.less">
+    <entry file="file://$PROJECT_DIR$/web/mobile/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="20" selection-start="1174" selection-end="1174" vertical-scroll-proportion="0.0">
+        <state line="59" column="54" selection-start="3243" selection-end="3243" vertical-scroll-proportion="-16.23077">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="52" selection-start="4359" selection-end="4359" vertical-scroll-proportion="-17.0">
+        <state line="193" column="66" selection-start="7015" selection-end="7015" vertical-scroll-proportion="0.31844217">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/mobile/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="49" selection-start="208" selection-end="208" vertical-scroll-proportion="0.12028302">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/base.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="300" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/mobile/js/base.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="52" selection-start="0" selection-end="300" vertical-scroll-proportion="0.15578465">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/city.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="32" selection-start="4664" selection-end="4664" vertical-scroll-proportion="0.85104054">
+        <state line="119" column="60" selection-start="6753" selection-end="6753" vertical-scroll-proportion="0.49369988">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/mobile/js/city.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="59" selection-start="0" selection-end="7584" vertical-scroll-proportion="0.16037735">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/styles/less/main.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="140" column="19" selection-start="2268" selection-end="2268" vertical-scroll-proportion="0.31844217">
           <folding />
         </state>
       </provider>

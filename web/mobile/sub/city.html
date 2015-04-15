@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <title>Israel Waves Mobile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+    <link rel="stylesheet" href="/styles/css/reset.css">
+    <!--<link rel="stylesheet" href="/mobile/css/main.css">-->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/mobile/js/base.js"></script>
+    <script src="/mobile/js/city.js"></script>
+    <script src="/mobile/js/main.js"></script>
+    <link rel="stylesheet/less" type="text/css" href="/mobile/styles/less/main.less" />
+    <script type="text/javascript" src="/vendor/less.js-master/dist/less.min.js"></script>
+</head>
+<body>
+<div data-role="page" id="main">
+    <div data-position="fixed" data-role="header" class ="header">
+        <div class="navbar-header">
+            <a class="navbar-brand" rel="external" href="/mobile/"></a>
+        </div>
+    </div>
+    <div data-role="navbar" class="upperNav">
+        <ul><li class="active dashboard"><a rel="external" href="/mobile/">ראשי</a></li>
+            <li class="nahariya"><a rel="external" href="/mobile/Nahariya/">נהריה</a></li>
+            <li class="haifa"><a rel="external" href="/mobile/Haifa/">חיפה</a></li>
+            <li class="netanya"><a rel="external" href="/mobile/Netanya/">נתניה</a></li>
+            <li class="herzliya"><a rel="external" href="/mobile/Herzliya/">הרצליה</a></li>
+            <li class="tlv"><a rel="external" href="/mobile/Tel-Aviv/">תל-אביב</a></li>
+            <li class="ashdod"><a rel="external" href="/mobile/Ashdod/">אשדוד</a></li></ul></ul>
+    </div><!-- /navbar -->
+        <div role="main" class="ui-content">
+            <div class="loading">
+                <img src="/styles/img/loading.gif"/>
+            </div>
+            <div class="weatherCurrent ui-body ui-body-a ui-corner-all" dir="rtl">
+                <div class="header">
+                    <div class="title">
+                        <div class="cloudsImg"></div>
+                        <div class="temp"></div>
+                    </div>
+                    <div class="currentTime"></div>
+                </div>
+                <table class="table table-condensed">
+                    <tr>
+                        <td>גובה גל ממוצע</td>
+                        <td class="waves"></td>
+                    </tr>
+                    <tr>
+                        <td>טמפרטורת מים</td>
+                        <td class="seaTemp"></td>
+                    </tr>
+                    <tr>
+                        <td>עוצמת רוח בקשר</td>
+                        <td>
+                            <span class="speed" dir="rtl"></span>
+                            <span class="direction"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>זריחה</td>
+                        <td class="sunrise"></td>
+                    </tr>
+                    <tr>
+                        <td>שקיעה</td>
+                        <td class="sunset"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="spacer"></div>
+            <div class="details ui-body ui-body-a ui-corner-all" dir="rtl" >
+                <h1></h1>
+                <p></p>
+                <span>ההמלצה למעלה  תלויה בשעת עידכון המצופים האחרונה</span>
+            </div>
+            <div class="spacer"></div>
+            <div class="imgContainer">
+                <img id="imgStat" alt="img" class="img-circle">
+            </div>
+        </div>    
+        <div class="footer" data-role="footer" data-position="fixed">
+            <div class="copyRights">&copy 2015 Israel Waves. All rights reserved.</div>
+        </div><!-- /footer -->
+    </div>
+</div>
+</body>
+</html>

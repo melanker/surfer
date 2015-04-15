@@ -22,7 +22,7 @@ $(function () {
                 weatherCurrentJq.find(".seaTemp").html(parseFloat(SurfInfo.webApp.charts.ashdodData.data[SurfInfo.webApp.charts.ashdodData.data.length - 1].temp) + "&deg");
             } else {
                 dataObj.waveHeight = ((SurfInfo.webApp.charts.ashdodData.dataHs[SurfInfo.webApp.charts.ashdodData.dataHs.length -1] +
-                    SurfInfo.webApp.charts.haifaData.dataHs[SurfInfo.webApp.charts.haifaData.dataHs.length - 1]) / 2).toPrecision(3);
+                                        SurfInfo.webApp.charts.haifaData.dataHs[SurfInfo.webApp.charts.haifaData.dataHs.length - 1]) / 2).toPrecision(3);
 
                 weatherCurrentJq.find(".seaTemp").html(((parseFloat(SurfInfo.webApp.charts.ashdodData.data[SurfInfo.webApp.charts.ashdodData.data.length -1].temp) +
                     parseFloat(SurfInfo.webApp.charts.haifaData.data[SurfInfo.webApp.charts.haifaData.data.length - 1].temp)) / 2).toPrecision(4) + "&deg");
@@ -31,10 +31,10 @@ $(function () {
             weatherCurrentJq.find(".waves").text(dataObj.waveHeight + "m");
             weatherCurrentJq.find(".speed").text((dataObj.wind.speed * 1.94384).toPrecision(4) + " " + "קשר");
             weatherCurrentJq.find(".direction").css({"background": "url(/styles/img/wa-sprite.png) -50px -1040px no-repeat",
-                '-webkit-transform' : 'rotate('+ dataObj.wind.deg +'deg)',
-                '-moz-transform' : 'rotate('+ dataObj.wind.deg +'deg)',
-                '-ms-transform' : 'rotate('+ dataObj.wind.deg +'deg)',
-                'transform' : 'rotate('+ dataObj.wind.deg +'deg)'});
+                                                    '-webkit-transform' : 'rotate('+ dataObj.wind.deg +'deg)',
+                                                    '-moz-transform' : 'rotate('+ dataObj.wind.deg +'deg)',
+                                                    '-ms-transform' : 'rotate('+ dataObj.wind.deg +'deg)',
+                                                    'transform' : 'rotate('+ dataObj.wind.deg +'deg)'});
             weatherCurrentJq.find(".sunset").text(SurfInfo.getTime(dataObj.sys.sunset * 1000));
             weatherCurrentJq.find(".sunrise").text(SurfInfo.getTime(dataObj.sys.sunrise * 1000));
             weatherCurrentJq.show();
@@ -89,19 +89,19 @@ $(function () {
 
 
             if (dataObj.waveHeight >= 0.8) {
-                if (dataObj.windSpeedKnots <= 7) {
-                    details = "ים חלום. קחו חופש מחלה וצאו לים";
-                    imgJq.attr("src", "/styles/img/perfectWave.jpg");
-                } else if (dataObj.windSpeedKnots > 7 && dataObj.windSpeedKnots < 10) {
+               if (dataObj.windSpeedKnots <= 7) {
+                   details = "ים חלום. קחו חופש מחלה וצאו לים";
+                   imgJq.attr("src", "/styles/img/perfectWave.jpg");
+               } else if (dataObj.windSpeedKnots > 7 && dataObj.windSpeedKnots < 10) {
                     details = "הים עובד יופי, צריך עדיין להתחשב בכיוון הרוח ועוצמתה" ;
-                    imgJq.attr("src", "/styles/img/regWaves.jpg");
-                } else if (dataObj.windSpeedKnots > 10 && dataObj.windSpeedKnots < 16) {
-                    details = "ים למנוסים, יש סיכוי לסחף ומכבסות עדיף חופים סגורים";
-                    imgJq.attr("src", "/styles/img/forPros.jpg");
-                } else {
-                    details = "לא מומלץ לרדת לים";
-                    imgJq.attr("src", "/styles/img/chppyWaves.jpg");
-                }
+                   imgJq.attr("src", "/styles/img/regWaves.jpg");
+               } else if (dataObj.windSpeedKnots > 10 && dataObj.windSpeedKnots < 16) {
+                   details = "ים למנוסים, יש סיכוי לסחף ומכבסות עדיף חופים סגורים";
+                   imgJq.attr("src", "/styles/img/forPros.jpg");
+               } else {
+                   details = "לא מומלץ לרדת לים";
+                   imgJq.attr("src", "/styles/img/chppyWaves.jpg");
+               }
             } else if (dataObj.waveHeight < 0.8 && dataObj.waveHeight >= 0.5) {
                 if (dataObj.windSpeedKnots <= 7) {
                     details = "ים מצויין למתחילים עם לונג בורד";

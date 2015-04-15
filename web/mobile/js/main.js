@@ -145,7 +145,7 @@ $(function (){
             SurfInfo.webApp.charts[name + "Data"].data = data;
             updateChart(name);
             heightJq.text(SurfInfo.webApp.charts[name + "Data"].dataHs[SurfInfo.webApp.charts[name + "Data"].dataHs.length - 1] + "m" + " - " +
-                SurfInfo.webApp.charts[name + "Data"].dataHmax[SurfInfo.webApp.charts[name + "Data"].dataHmax.length - 1] + "m");
+                          SurfInfo.webApp.charts[name + "Data"].dataHmax[SurfInfo.webApp.charts[name + "Data"].dataHmax.length - 1] + "m");
             dateJq.text(SurfInfo.webApp.charts[name + "Data"].data[0].day);
             hourJq.text(SurfInfo.webApp.charts[name + "Data"].dataTime[SurfInfo.webApp.charts[name + "Data"].dataTime.length - 1]);
             tempJq.html(SurfInfo.webApp.charts[name + "Data"].data[SurfInfo.webApp.charts[name + "Data"].data.length - 1].temp + "&deg");
