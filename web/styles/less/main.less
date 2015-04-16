@@ -51,25 +51,33 @@ html, body {
     font-size: 18px;
     text-align: right;
 
+
     .ashdodStatus, .haifaStatus {
-      margin: 10px 10px 0 0;
+      margin: 5px 10px 0 0;
       cursor: pointer;
       transition: color 0.5s ease;
       display: inline-block;
       height: inherit;
-      width: 110px;
+      width: 230px;
 
       &:hover {
-        color: #ed0000;
+        color: #31b0d5;
+      }
+
+      h3 {
+        text-decoration: underline;
       }
 
       div {
-        height: 22px;
+        height: 20px;
+        width: 120px;;
+        display: inline-block;
+        font-size: 14px;
 
-        &.height, &.time {
-          font-weight: normal;
-          font-size: 14px;
-        }
+      }
+
+      span {
+        font-size: 12px;
       }
     }
   }
@@ -93,6 +101,7 @@ html, body {
 }
 
 ul.upperNav {
+    float: right;
 
     a {
       font-weight: bold;

@@ -130,9 +130,8 @@ $(function () {
                 dataObj = data;
                 populateCityTable();
                 prepareReport();
-            }, function() {
-                debugger;
-                issueOpenWeatherRequest();
+            }, function(data) {
+                SurfInfo.initCity();
             });
         }();
     };

@@ -2,27 +2,32 @@
 <html lang="he">
 <meta charset="utf-8">
 <head>
-    <!--<script src="/vendor/jquery-2.1.3.min.js"></script>-->
-    <!--<script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>-->
+    <title>גובה הגלים בישראל</title>
+    <meta name="description" content="מידע עדכני על גובה הגלים בישראל כפי שנדגם מהמצופים, מידע על מזג האוויר וכל המידע הנחוץ לגולש ישראלי">
+    <meta name="keywords" content="גובה גלים, תחזית, מצוף חיפה, מצוף אשדוד">
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="/vendor/highcharts.src.js"></script>
     <script src="/vendor/highcharts-more.src.js"></script>
-    <!--<link rel="stylesheet" href="/vendor/bootstrap-3.3.4-dist/css/bootstrap.min.css" />-->
-    <!--<link rel="stylesheet" href="/vendor/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css" />-->
-    <!--<script src="vendor/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <script src="/js/base.js"></script>
-    <script src="/js/city.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="/js/base.min.js"></script>
+    <script src="/js/city.min.js"></script>
+    <script src="/js/main.min.js"></script>
     <link rel="stylesheet" href="/styles/css/reset.css">
-    <!--<link rel="stylesheet" href="/styles/css/main.css">-->
-    <link rel="stylesheet/less" type="text/css" href="/styles/less/main.less" />
-    <script type="text/javascript" src="/vendor/less.js-master/dist/less.min.js"></script>
-    <title>Israel Waves</title>
+    <link rel="stylesheet" href="/styles/css/main.css">
 </head>
 <body>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-61959226-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
 <div id="content">
     <nav class="navbar navbar-inverse headerNav">
         <div class="container-fluid">
@@ -30,34 +35,43 @@
             <div class="navbar-header col-md-6 col-xs-6 .col-sm-6 col-lg-6">
                 <a class="navbar-brand" href="/"></a>
             </div>
-            <div class="status col-md-4 col-xs-4 .col-sm-4 col-lg-4">
+            <div class="status col-md-6 col-xs-6 .col-sm-6 col-lg-6" dir="rtl">
                 <div class="ashdodStatus">
-                    <div>אשדוד</div>
-                    <div class="height"></div>
-                    <div class="time"></div>
+                    <h3>אשדוד</h3>
+                    <div>גובה גל</div><span class="height"></span><br />
+                    <div>תאריך עידכון מצוף</div><span class="date" dir="ltr"></span><br />
+                    <div>שעת עידכון מצוף</div><span class="hour"></span><br />
+                    <div>טמפרטורת מים</div><span class="temp"></span><br />
                 </div>
                 <div class="haifaStatus">
-                    <div>חיפה</div>
-                    <div class="height"></div>
-                    <div class="time"></div>
+                    <h3>חיפה</h3>
+                    <div>גובה גל</div><span class="height"></span><br />
+                    <div>תאריך עידכון מצוף</div><span class="date" dir="ltr"></span><br />
+                    <div>שעת עידכון מצוף</div><span class="hour"></span><br />
+                    <div>טמפרטורת מים</div><span class="temp"></span><br />
                 </div>
             </div>
         </div><!-- /.container-fluid -->
     </nav>
     <ul class="nav nav-pills upperNav">
-        <li class="active dashboard"><a href="/">ראשי</a></li>
         <li class="nahariya"><a href="/Nahariya/">נהריה</a></li>
         <li class="haifa"><a href="/Haifa/">חיפה</a></li>
         <li class="netanya"><a href="/Netanya/">נתניה</a></li>
-        <li class="herzliya"><a href="/Herzliya/">הרצליה</a></li>
+        <li class="herzliya"><a href="/Herzliyya/">הרצליה</a></li>
         <li class="tlv"><a href="/Tel-Aviv/">תל-אביב</a></li>
         <li class="ashdod"><a href="/Ashdod/">אשדוד</a></li>
+        <li class="active dashboard"><a href="/">ראשי</a></li>
     </ul>
     <div class="spacer"></div>
-    <div class="container-fluid">
+    <div class="container-fluid" dir="rtl">
         <div class="row">
             <div class="loading">
                 <img src="/styles/img/loading.gif"/>
+            </div>
+            <div class="jumbotron details col-md-3 col-xs-3 col-sm-3 col-lg-3 col-md-offset-3 col-xs-offset-3 col-sm-offset-3 col-lg-offset-3">
+                <h1></h1>
+                <p></p>
+                <span>ההמלצה למעלה  תלויה בשעת עידכון המצופים האחרונה</span>
             </div>
             <div class="weatherCurrent col-md-3 col-xs-3 col-sm-3 col-lg-3">
                 <div class="header">
@@ -69,34 +83,29 @@
                 </div>
                 <table class="table table-condensed">
                     <tr>
-                        <td class="waves"></td>
                         <td>גובה גל ממוצע</td>
+                        <td class="waves"></td>
                     </tr>
                     <tr>
-                        <td class="seaTemp"></td>
                         <td>טמפרטורת מים</td>
+                        <td class="seaTemp"></td>
                     </tr>
                     <tr>
+                        <td>עוצמת רוח בקשר</td>
                         <td>
                             <span class="speed"></span>
                             <span class="direction"></span>
                         </td>
-                        <td>עוצמת רוח בקשר</td>
                     </tr>
                     <tr>
-                        <td class="sunrise"></td>
                         <td>זריחה</td>
+                        <td class="sunrise"></td>
                     </tr>
                     <tr>
-                        <td class="sunset"></td>
                         <td>שקיעה</td>
+                        <td class="sunset"></td>
                     </tr>
                 </table>
-            </div>
-            <div class="jumbotron details col-md-3 col-xs-3 col-sm-3 col-lg-3" dir="rtl" >
-                <h1></h1>
-                <p></p>
-                <span>ההמלצה למעלה  תלויה בשעת עידכון המצופים האחרונה</span>
             </div>
         </div>
         <div class="row">

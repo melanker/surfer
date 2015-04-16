@@ -1,6 +1,5 @@
 $(function (){
-
-    var idAndClassesMap, updateChart, updateWaveInfo, updateWaveInfo, buildChart, initFunction;
+    var idAndClassesMap, updateChart, updateWaveInfo, updateWaveInfo, initFunction;
 
     idAndClassesMap = {
         ashdodChart: "#ashdodChart",
@@ -27,7 +26,6 @@ $(function (){
             }
         }
     };
-
 
     updateChart = function(name) {
         var dataLength = SurfInfo.webApp.charts[name + "Data"].data.length,
@@ -79,7 +77,6 @@ $(function (){
             }]
         });
     };
-
 
     SurfInfo.communication = {
         http: function (url, method) {
@@ -195,25 +192,25 @@ $(function (){
 
             switch (locationPath) {
                 case "Netanya":
-                    activateTab.call(liJq.eq(3));
-                    break;
-                case "Nahariya":
-                    activateTab.call(liJq.eq(1));
-                    break;
-                case "Haifa":
                     activateTab.call(liJq.eq(2));
                     break;
-                case "Herzliya":
-                    activateTab.call(liJq.eq(4));
+                case "Nahariya":
+                    activateTab.call(liJq.eq(0));
+                    break;
+                case "Haifa":
+                    activateTab.call(liJq.eq(1));
+                    break;
+                case "Herzliyya":
+                    activateTab.call(liJq.eq(3));
                     break;
                 case "Tel-Aviv":
-                    activateTab.call(liJq.eq(5));
+                    activateTab.call(liJq.eq(4));
                     break;
                 case "Ashdod":
-                    activateTab.call(liJq.eq(6));
+                    activateTab.call(liJq.eq(5));
                     break;
                 default:
-                    activateTab.call(liJq.eq(0));
+                    activateTab.call(liJq.eq(6));
             }
         };
 
