@@ -6,11 +6,13 @@ $(function (){
         haifaChart: "#haifaChart",
         ashdodStatus: ".ashdodStatus",
         haifaStatus: ".haifaStatus",
-        upperNav: ".upperNav"
+        upperNav: ".upperNav",
+        openContactMe: ".openContactMe"
     };
 
     SurfInfo.webApp = {
         isMobile: false,
+        contactMeJq: $("#contactMe"),
         charts: {
             ashdodData: {
                 loadingJq: $(".ashdodLoading"),
@@ -24,6 +26,13 @@ $(function (){
                 day: "",
                 data: []
             }
+        },
+        cityMapping: {
+            "Ashdod": "295629",
+            "Herzliyya": "294778",
+            "Tel-Aviv": "293397",
+            "Netanya": "294071",
+            "Haifa": "294801"
         }
     };
 
@@ -79,13 +88,14 @@ $(function (){
     };
 
     SurfInfo.communication = {
-        http: function (url, method) {
+        http: function (url, method, data) {
             var deferred = $.Deferred();
 
             $.ajax({
                 url: url,
                 crossDomain: true,
                 type: method,
+                data: data,
                 success: function (data) {
                     deferred.resolve(data);
                 },
@@ -219,6 +229,20 @@ $(function (){
             }
         };
 
+        var initMailForm = function() {
+            var form = $('#ajax-contact');
+
+            $(form).submit(function(event) {
+                var formData = $(form).serialize();
+                SurfInfo.communication.http($(form).attr('action'), 'POST', $(form).serialize()).then(function(data) {
+
+                });
+                SurfInfo.webApp.contactMeJq.modal('hide');
+                return false;
+            });
+        };
+
+        initMailForm();
         toggleTab();
         SurfInfo.webApp.charts.ashdodData.loadingJq.show();
         SurfInfo.webApp.charts.haifaData.loadingJq.show();
