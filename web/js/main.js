@@ -117,16 +117,16 @@ $(function (){
         parseHtml = function(rowJq, day) {
             var currentRowJq = rowJq.find('td'),
                 dataObj = {
-                    day: day || "",
-                    time: currentRowJq.eq(0).text() || "-",
-                    hMax: parseFloat(currentRowJq.eq(1).text()) || "-",
-                    hS: parseFloat(currentRowJq.eq(2).text()) || "-",
-                    hThird: parseFloat(currentRowJq.eq(3).text()) || "-",
-                    direction: currentRowJq.eq(4).text() || "-",
-                    tAv: currentRowJq.eq(5).text() || "-",
-                    tZ: currentRowJq.eq(6).text() || "-",
-                    tP: currentRowJq.eq(7).text() || "-",
-                    temp: currentRowJq.eq(8).text()
+                    day: day || "0",
+                    time: currentRowJq.eq(0).text() || "0",
+                    hMax: parseFloat(currentRowJq.eq(1).text()) || 0,
+                    hS: parseFloat(currentRowJq.eq(2).text()) || 0,
+                    hThird: parseFloat(currentRowJq.eq(3).text()) || "0",
+                    direction: currentRowJq.eq(4).text() || "0",
+                    tAv: currentRowJq.eq(5).text() || "0",
+                    tZ: currentRowJq.eq(6).text() || "0",
+                    tP: currentRowJq.eq(7).text() || "0",
+                    temp: currentRowJq.eq(8).text() || "0"
                 };
 
             return dataObj;
