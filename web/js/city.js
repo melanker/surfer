@@ -1,8 +1,7 @@
 $(function () {
-
+    SurfInfo.reqFlag = false;
     SurfInfo.initCity = function () {
         var dataObj = {},
-            self = this,
             populateCityTable,
             prepareReport,
             loadingJq = $(".loading");
@@ -125,13 +124,19 @@ $(function () {
 
 
         var issueOpenWeatherRequest = function() {
-            self.communication.http("http://api.openweathermap.org/data/2.5/weather?q=" + SurfInfo.webApp.locationPath + ",il&units=metric", "GET").then(function(data) {
+            SurfInfo.communication.http("http://api.openweathermap.org/data/2.5/weather" + (SurfInfo.reqFlag ? ("?id=" + SurfInfo.webApp.cityMapping[SurfInfo.webApp.locationPath])  : ("?q=" + SurfInfo.webApp.locationPath + ",il")) + "&units=metric", "GET").then(function(data) {
                 loadingJq.show();
-                dataObj = data;
-                populateCityTable();
-                prepareReport();
+                if (data.cod && data.cod === "500") {
+                    SurfInfo.reqFlag = !SurfInfo.reqFlag;
+                    setTimeout(SurfInfo.initCity, 2000);
+                } else {
+                    dataObj = data;
+                    populateCityTable();
+                    prepareReport();
+                }
             }, function(data) {
-                SurfInfo.initCity();
+                SurfInfo.reqFlag = !SurfInfo.reqFlag;
+                setTimeout(SurfInfo.initCity, 2000);
             });
         }();
     };

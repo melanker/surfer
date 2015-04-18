@@ -12,6 +12,7 @@ $(function (){
 
     SurfInfo.webApp = {
         isMobile: false,
+        requestCounter: 0,
         contactMeJq: $("#contactMe"),
         charts: {
             ashdodData: {
@@ -32,7 +33,8 @@ $(function (){
             "Herzliyya": "294778",
             "Tel-Aviv": "293397",
             "Netanya": "294071",
-            "Haifa": "294801"
+            "Haifa": "294801",
+            "Nahariya": "294117"
         }
     };
 
