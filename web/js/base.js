@@ -1,6 +1,8 @@
-var SurfInfo = {};
+var SurfInfo = function() {
 
-SurfInfo.getTime = function (time) {
+};
+
+SurfInfo.prototype.getTime = function (time) {
     var addZero = function(i) {
         if (i < 10) {
             i = "0" + i;

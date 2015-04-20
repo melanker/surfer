@@ -83,6 +83,10 @@ html, body {
   }
 }
 
+.cityContent {
+  position: relative;
+}
+
 .ashdodLoading, .haifaLoading, .loading {
   position: absolute;
   z-index: 44;
@@ -102,20 +106,20 @@ html, body {
 
 ul.upperNav {
     float: right;
+    font-size: 30px;
 
     a {
       font-weight: bold;
-      font-size: 14px;
 
       &:hover {
         transition: color 0.4s;
-        color: #31b0d5;
+        color: #29abe2;
         background-color: transparent;
       }
     }
     .active {
       a {
-        color: #31b0d5 !important;
+        color: #29abe2 !important;
         background-color: transparent !important;
       }
     }
@@ -193,19 +197,97 @@ ul.upperNav {
     cursor: pointer;
     transition: color 0.2s;
     position: relative;
+    height: 30px;
 
-    a {
-      height: 27px;
-      width: 27px;
-      display: block;
-      position: absolute;
-      top: 0;
-    }
+        a {
+          height: 27px;
+          width: 27px;
+          display: block;
+          position: absolute;
+          display: block;
+          top: 0;
 
-    &:hover {
-      transition: color 0.2s;
-      color: #3b5998;
-    }
+        }
+
+        &.followUs {
+          &:hover {
+            transition: color 0.2s;
+            color: #3b5998;
+          }
+        }
+
+        &.contactMe {
+          top: -1px;
+          right: -15px;
+
+          &:hover {
+            transition: color 0.2s;
+            color: #29abe2;
+          }
+        }
+  }
+}
+
+.contentInfo {
+  h3 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    font-size: 24px;
+    color: #29abe2;
+    font-weight: bold;
   }
 
+  .tableContent {
+    float: right;
+
+    h4 {
+      color: #29abe2;
+      padding-bottom: 5px;
+      font-size: 20px;
+      font-weight: bold;
+
+    }
+
+    ul {
+      list-style-type: none;
+      clear: right;
+    }
+
+    li {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      float: right;
+
+      &.icon {
+        font-size: 26px;
+        width: 10%;
+
+        div {
+          position: relative;
+          color: #123456;
+
+          &.fa-cogs {
+            left: 8px;
+            top: 4px;
+          }
+          &.fa-mobile {
+            font-size: 36px;
+          }
+          &.fa-cloud {
+              right: -7px;
+          }
+          &.fa-tint {
+            position: relative;
+            top: 5px;
+          }
+        }
+
+      }
+
+      &.information {
+        width: 90%;
+      }
+    }
+  }
 }
+

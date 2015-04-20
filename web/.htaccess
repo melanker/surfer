@@ -12,6 +12,7 @@ RewriteRule ^Herzliyya/ /sub/city.html [L]
 RewriteRule ^Haifa/ /sub/city.html [L]
 RewriteRule ^Ashdod/ /sub/city.html [L]
 RewriteRule ^Nahariya/ /sub/city.html [L]
+RewriteRule ^test /sub/test.html [L]
 
 RewriteRule ^mobile/Netanya/ /mobile/sub/city.html [L]
 RewriteRule ^mobile/Tel-Aviv/ /mobile/sub/city.html [L]

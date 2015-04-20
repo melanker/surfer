@@ -27,16 +27,15 @@
 
         ga('create', 'UA-61959226-1', 'auto');
         ga('send', 'pageview');
-
     </script>
     <div id="content">
         <nav class="navbar navbar-inverse headerNav">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header col-md-6 col-xs-6 .col-sm-6 col-lg-6">
+                <div class="navbar-header col-md-6 col-xs-6 col-sm-6 col-lg-6">
                     <a class="navbar-brand" href="/"></a>
                 </div>
-                <div class="status col-md-6 col-xs-6 .col-sm-6 col-lg-6" dir="rtl">
+                <div class="status col-md-6 col-xs-6 col-sm-6 col-lg-6" dir="rtl">
                     <div class="ashdodStatus">
                         <h3>אשדוד</h3>
                         <div>גובה גל</div><span class="height"></span><br />
@@ -66,11 +65,46 @@
         <div class="spacer"></div>
         <div class="spacer"></div>
         <div class="container-fluid">
-            <div class="jumbotron" dir="rtl">
-                <h1>פתוח לקהל הגולשים</h1>
-                <p>
-                    מידע בזמן אמת ממצופי חיפה ואשדוד דיווח רוח וטמפרטורה
-                </p>
+            <div class="container contentInfo" dir="rtl">
+                <h3>מידע על האתר</h3>
+                <div class="tableContent col-md-4 col-xs-4 col-sm-4 col-lg-4">
+                    <ul>
+                        <li class="icon">
+                            <div class="fa fa-tint"></div>
+                        </li>
+                        <li class="information">
+                            <h4>מידע מהמצופים</h4>
+                            <div>מידע ממצוף נמל חיפה וממצוף נמל אשדוד. לצערנו כיום המצופים מתעדכנים אחת לכמה שעות</div>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li class="icon">
+                            <div class="fa fa-cloud"></div>
+                        </li>
+                        <li class="information">
+                            <h4>מידע על מזג האויר</h4>
+                            <div>מידע עדכני על טמפרטורה, עוצמת רוח וכיוון</div>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li class="icon">
+                            <div class="fa fa-mobile"></div>
+                        </li>
+                        <li class="information">
+                            <h4>תמיכה במובייל</h4>
+                            <div>תמיכה מהירה במשתמשי המובייל, אין צורך להוריד אפליקציה ייעודית, פשוט לשמור קישור לאתר והאתר יתאים את עצמו למכשיר</div>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li class="icon">
+                            <div class="fa fa-cogs"></div>
+                        </li>
+                        <li class="information">
+                            <h4>קלות שימוש</h4>
+                            <div>פשוט לבחור את העיר ולקבל תחזית</div>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="row">
                 <div class="col-md-6 col-xs-6 .col-sm-6 col-lg-6">
@@ -111,7 +145,6 @@
                             <label for="message">הודעה</label>
                             <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
                         </div>
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">סגור</button>
@@ -121,11 +154,26 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+    <div class="modal fade" id="notifyDialog" dir="rtl">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" >שגיאה</h4>
+                </div>
+                <div class="modal-body">
+                    <p></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">סגור</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
     <div id="footer" dir="ltr">
         <div class="copyRights">&copy 2015 Israel Waves. All rights reserved.</div>
         <div class="groupFooter">
             <i class="fa fa-facebook-official followUs"><a href="https://www.facebook.com/israelwaves.info" title="תעקבו אחרנו בפייסבוק"></a></i>
-            <i class="fa fa-envelope-square contactMe"><a data-toggle="modal" data-target="#contactMe" title="צרו קשר איתנו"></a></i>
+            <i class="fa fa-envelope contactMe"><a data-toggle="modal" data-target="#contactMe" title="צרו קשר איתנו"></a></i>
         </div>
     </div>
     </body>

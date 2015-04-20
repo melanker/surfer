@@ -11,12 +11,14 @@
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script src="http://code.highcharts.com/highcharts.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="/js/base.js"></script>
     <script src="/js/city.js"></script>
     <script src="/js/main.js"></script>
+    <!--<script src="/js/all.min.js"></script>-->
 </head>
 <body>
 <script>
@@ -94,9 +96,60 @@
             <div class="imgContainer">
                 <img id="imgStat" alt="img" class="img-circle">
             </div>
-        </div>    
+        </div>
+    <div class="modal fade col-md-12 col-xs-12 col-sm-12 col-lg-12" id="contactMe" dir="rtl">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" >צור קשר</h4>
+                </div>
+                <form id="ajax-contact" method="post" action="/server/mailer.php">
+                    <div class="modal-body">
+                        <div class="field">
+                            <label for="name">שם מלא</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="הכנס שם" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="email">מייל</label>
+                            <input dir="ltr" type="email" id="email" class="form-control" name="email" placeholder="הכנס את כתובת המייל שלך" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="message">הודעה</label>
+                            <textarea id="message" name="message" class="form-control" rows="3" required></textarea>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">סגור</button>
+                        <button type="submit" class="btn btn-primary">שלח</button>
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <div class="modal fade" id="notifyDialog" dir="rtl">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" >שגיאה</h4>
+                </div>
+                <div class="modal-body">
+                    <p></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">סגור</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
         <div class="footer" data-role="footer" data-position="fixed">
-            <div class="copyRights">&copy 2015 Israel Waves. All rights reserved.</div>
+            <div class="copyRights">&copy 2015 Israel Waves.</div>
+            <div class="groupFooter">
+                <i class="fa fa-facebook-official followUs"><a href="https://www.facebook.com/israelwaves.info" title="תעקבו אחרנו בפייסבוק"></a></i>
+                <i class="fa fa-envelope-square contactMe"><a data-toggle="modal" data-target="#contactMe" title="צרו קשר איתנו"></a></i>
+            </div>
         </div><!-- /footer -->
     </div>
 </div>
