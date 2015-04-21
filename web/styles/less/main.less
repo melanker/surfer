@@ -175,10 +175,13 @@ ul.upperNav {
 
 .jumbotron {
   &.details {
-    margin-top: 80px;
+    margin-top: 101px;
+    border: 1px solid #ddd;
+    background-color: transparent;
 
     h1 {
       font-weight: bold;
+      color: #29abe2;
       font-size: 22px;
     }
     p {
@@ -192,8 +195,14 @@ ul.upperNav {
 
 .groupFooter {
   margin: 8px 0 0 0;
-  width: 150px;
+  width: 300px;
   float: right;
+
+  div {
+    &.fb-like {
+      top: -1px;
+    }
+  }
 
   i {
     font-size: 22px;
@@ -214,21 +223,32 @@ ul.upperNav {
         }
 
         &.followUs {
+          margin-left: 10px;
           &:hover {
             transition: color 0.2s;
             color: #3b5998;
           }
         }
+  }
 
-        &.contactMe {
-          top: -1px;
-          right: -15px;
+  span {
+    a {
+      color: white;
+      text-decoration: none;
 
-          &:hover {
-            transition: color 0.2s;
-            color: #29abe2;
-          }
-        }
+      &:hover {
+        transition: color 0.2s;
+        color: #29abe2;
+      }
+    }
+
+    &.contactMe {
+      font-size: 22px;
+      font-weight: bold;
+      color: white;
+
+      cursor: pointer;
+    }
   }
 }
 

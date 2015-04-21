@@ -3,8 +3,9 @@
 <head>
     <title>גובה הגלים בישראל</title>
     <meta name="description" content="מידע עדכני על גובה הגלים בישראל כפי שנדגם מהמצופים, מידע על מזג האוויר וכל המידע הנחוץ לגולש ישראלי">
-    <meta name="keywords" content="גובה גלים, תחזית, מצוף חיפה, מצוף אשדוד">
+    <meta name="keywords" content="גובה גלים, תחזית, מצוף, גלישה, רוח, ישראל, גלשן">
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+    <meta property="og:image" content="http://israelwaves.info/styles/img/perfectWave.gif"/>
     <link rel="stylesheet" href="/styles/css/reset.css">
     <link rel="stylesheet" href="/mobile/styles/css/main.css">
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
@@ -16,10 +17,18 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="/js/all.min.js"></script>
-    <!--<link rel="stylesheet/less" type="text/css" href="/mobile/styles/less/main.less" />-->
-    <!--<script type="text/javascript" src="/vendor/less.js-master/dist/less.min.js"></script>-->
+<!--    <link rel="stylesheet/less" type="text/css" href="/mobile/styles/less/main.less" />
+    <script type="text/javascript" src="/vendor/less.js-master/dist/less.min.js"></script>-->
 </head>
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.3";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -106,7 +115,7 @@
                         <div class="fa fa-cogs"></div>
                     </li>
                     <li class="information">
-                        <h4>קלות שימוש</h4>
+                        <h4>קל לשימוש</h4>
                         <div>פשוט לבחור את העיר ולקבל תחזית</div>
                     </li>
                 </ul>
@@ -178,6 +187,7 @@
         <div class="footer" data-role="footer" data-position="fixed">
             <div class="copyRights">&copy 2015 Israel Waves.</div>
             <div class="groupFooter">
+                <div class="fb-like" data-href="https://www.facebook.com/israelwaves.info" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
                 <i class="fa fa-facebook-official followUs"><a href="https://www.facebook.com/israelwaves.info" title="תעקבו אחרנו בפייסבוק"></a></i>
                 <i class="fa fa-envelope-square contactMe"><a data-toggle="modal" data-target="#contactMe" title="צרו קשר איתנו"></a></i>
             </div>
