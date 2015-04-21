@@ -123,11 +123,15 @@ ul.upperNav {
         background-color: transparent !important;
       }
     }
-
 }
 
 .weatherCurrent {
   display: none;
+
+  .lastUpdated {
+    font-size: 12px;
+    font-weight: bold;
+  }
 
   .title {
     height: 80px;
@@ -135,12 +139,13 @@ ul.upperNav {
       display: inline-block;
       font-size: 35px;
 
+
+
       &.cloudsImg {
         width: 50px;
         height: 40px;
       }
     }
-
   }
 
   .direction {
@@ -150,7 +155,6 @@ ul.upperNav {
     top: 6px;
     position: relative;
   }
-
 }
 
 .spacer {
@@ -192,7 +196,7 @@ ul.upperNav {
   float: right;
 
   i {
-    font-size: 28px;
+    font-size: 22px;
     margin-right: 15px;
     cursor: pointer;
     transition: color 0.2s;

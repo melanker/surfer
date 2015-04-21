@@ -1,10 +1,10 @@
 <?php
 
-include include 'db_sql.php';
+include 'db_sql.php';
 
 /***************Connection details for MYSQL users DB***************************************/
-define('DB_users_USER', 'melanker');
-define('DB_users_PASS', '70100830a');
+define('DB_users_USER', 'root');
+define('DB_users_PASS', '');
 define('DB_users_HOST' , 'localhost');
 define('DB_users_NAME' , 'weather');
 define('DB_users_PORT' , '3306');
@@ -82,9 +82,8 @@ function checkIfExist($id) {
     } else {
         return false;
     }
-
-
 }
+
 
 function recordsLoader() { //start recordsLoader()
 

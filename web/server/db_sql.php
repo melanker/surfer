@@ -1,7 +1,5 @@
 <?php
 
-use PDO;
-
 class DBMySql {
 
     private $host;

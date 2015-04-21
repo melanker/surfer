@@ -15,3 +15,10 @@ SurfInfo.prototype.getTime = function (time) {
     var m = addZero(d.getMinutes());
     return  h + ":" + m;
 };
+
+SurfInfo.prototype.prettyDate = function (date) {
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], d = new Date(date);
+
+    return months[d.getUTCMonth()] + " " + d.getUTCDate();
+};
+

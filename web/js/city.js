@@ -36,6 +36,7 @@ SurfInfo.prototype.initCity = function () {
             'transform' : 'rotate('+ dataObj.wind.deg +'deg)'});
         weatherCurrentJq.find(".sunset").text(thisSurfingInfoJq.getTime(dataObj.sys.sunset * 1000));
         weatherCurrentJq.find(".sunrise").text(thisSurfingInfoJq.getTime(dataObj.sys.sunrise * 1000));
+        weatherCurrentJq.find(".lastUpdated").text(thisSurfingInfoJq.prettyDate(dataObj.dt * 1000) + " " +  thisSurfingInfoJq.getTime(dataObj.dt * 1000));
         weatherCurrentJq.show();
     };
 
@@ -128,13 +129,21 @@ SurfInfo.prototype.initCity = function () {
             thisSurfingInfoJq.communication.http(url , "GET").then(function(data) {
 
                 loadingJq.show();
-                if (data.cod && data.cod === "500") {
+                if ((data.cod && data.cod === "500") ) {
                     deferred.reject(data);
-                } else {
+                }
+                else if (typeof(data) === "string" && data.indexOf("city_id") >= 0) {
+                    dataObj = JSON.parse(JSON.parse(data).data);
+                    populateCityTable();
+                    prepareReport();
+                    deferred.resolve(dataObj);
+                } else if(data.wind) {
                     dataObj = data;
                     populateCityTable();
                     prepareReport();
-                    deferred.resolve(data);
+                    deferred.resolve(dataObj);
+                } else {
+                    deferred.reject(data);
                 }
 
 
@@ -144,26 +153,30 @@ SurfInfo.prototype.initCity = function () {
         return deferred.promise();
     };
 
+    issueOpenWeatherRequest("/server/city_data.php?id=" + thisSurfingInfoJq.data.cityMapping[thisSurfingInfoJq.data.locationPath]).then(function() {}, function (data) {
+        issueOpenWeatherRequest("http://api.openweathermap.org/data/2.5/weather?id=" +
+            thisSurfingInfoJq.data.cityMapping[thisSurfingInfoJq.data.locationPath] +
+            "&units=metric&APPID=65979c59499d18cff77bbcfd2c8bdce6").then(function(data) {},
+            function(data) {
+                thisSurfingInfoJq = SurfInfo.prototype;
+                setTimeout(function() {
+                    issueOpenWeatherRequest.call(thisSurfingInfoJq, "http://api.openweathermap.org/data/2.5/weather?q=" +
+                            thisSurfingInfoJq.data.locationPath + ",il" +
+                            "&units=metric&APPID=65979c59499d18cff77bbcfd2c8bdce6")
+                        .then(function(data) {}, function(data) {
+                            var errorModalJq = $("#notifyDialog");
+                            errorModalJq.find("p").text("בעיה בשרת, נסה מאוחר יותר");
+                            errorModalJq.modal("show");
+                            setTimeout(function() {
+                                window.location = "/";
+                            }, 4000);
+                        });
+                }, 4000);
+            });
+    });
 
-    issueOpenWeatherRequest("http://api.openweathermap.org/data/2.5/weather?id=" +
-                            thisSurfingInfoJq.data.cityMapping[thisSurfingInfoJq.data.locationPath] +
-                            "&units=metric&APPID=65979c59499d18cff77bbcfd2c8bdce6").then(function(data) {},
-        function(data) {
-            thisSurfingInfoJq = SurfInfo.prototype;
-            setTimeout(function() {
-                issueOpenWeatherRequest.call(thisSurfingInfoJq, "http://api.openweathermap.org/data/2.5/weather?q=" +
-                     thisSurfingInfoJq.data.locationPath + ",il" +
-                    "&units=metric&APPID=65979c59499d18cff77bbcfd2c8bdce6")
-                    .then(function(data) {}, function(data) {
-                        var errorModalJq = $("#notifyDialog");
-                        errorModalJq.find("p").text("בעיה בשרת, נסה מאוחר יותר");
-                        errorModalJq.modal("show");
-                        setTimeout(function() {
-                            window.location = "/";
-                        }, 4000);
-                    });
-            }, 4000);
-        });
+
+
 
 
 
