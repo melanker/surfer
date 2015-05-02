@@ -18,8 +18,7 @@
     }
 
     if ($_GET["place"] === "ashdod") {
-        $str = httpGet("http://www.israports.co.il/_layouts/IsraelPorts/WaveHeight/Ashdodw-ipa.html");
+        echo file_get_contents("ashdod.txt");
     } else {
-        $str = httpGet("http://www.israports.co.il/_layouts/IsraelPorts/WaveHeight/Haifaw-ipa.html");
+        echo file_get_contents("haifa.txt");
     }
-    echo $str;
