@@ -18,7 +18,10 @@
   },
   "homepage": "https://github.com/melanker/surfer#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.12.4",
     "express": "^4.12.4",
-    "mongoose": "^4.0.5"
+    "mongoose": "^2.0.5",
+    "morgan": "^1.5.3"
   }
 }
