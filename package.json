@@ -1,0 +1,24 @@
+{
+  "name": "surfer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/melanker/surfer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/melanker/surfer/issues"
+  },
+  "homepage": "https://github.com/melanker/surfer#readme",
+  "dependencies": {
+    "express": "^4.12.4",
+    "mongoose": "^4.0.5"
+  }
+}
