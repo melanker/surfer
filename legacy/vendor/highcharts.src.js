@@ -4651,7 +4651,7 @@ extend(SVGRenderer.prototype, {
  * START OF INTERNET EXPLORER <= 8 SPECIFIC CODE                              *
  *                                                                            *
  * For applications and websites that don't need IE support, like platform    *
- * targeted mobile apps and web apps, this code can be removed.               *
+ * targeted mobile apps and legacy apps, this code can be removed.               *
  *                                                                            *
  *****************************************************************************/
 
@@ -11784,7 +11784,7 @@ Chart.prototype = {
 		}
 		
 		// If the container already holds a chart, destroy it. The check for hasRendered is there
-		// because web pages that are saved to disk from the browser, will preserve the data-highcharts-chart
+		// because legacy pages that are saved to disk from the browser, will preserve the data-highcharts-chart
 		// attribute and the SVG contents, but not an interactive chart. So in this case,
 		// charts[oldChartIndex] will point to the wrong chart if any (#2609).
 		oldChartIndex = pInt(attr(renderTo, indexAttrName));

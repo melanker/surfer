@@ -396,7 +396,7 @@ module.exports = function (grunt) {
         'jasmine'
     ]);
 
-    // setup a web server to run the browser tests in a browser rather than phantom
+    // setup a legacy server to run the browser tests in a browser rather than phantom
     grunt.registerTask('browsertest-server', [
         'browsertest-lessjs',
         'jasmine::build',
@@ -424,7 +424,7 @@ module.exports = function (grunt) {
         'sauce-after-setup'
     ]);
 
-    // setup a web server to run the browser tests in a browser rather than phantom
+    // setup a legacy server to run the browser tests in a browser rather than phantom
     grunt.registerTask('sauce-after-setup', [
         'saucelabs-jasmine',
         'clean:sauce_log'
