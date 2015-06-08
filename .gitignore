@@ -1,7 +1,9 @@
 *.class
 /.idea/**/*
+/.node_modules/**/*
 /target/**/*
 *findbugs-idea.xml
 /TRM_domain/tmp/**/*
 *.log
 *.iml
+

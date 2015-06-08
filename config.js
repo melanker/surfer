@@ -1,3 +1,5 @@
-/**
- * Created by alonm on 6/7/2015.
- */
+module.exports = {
+    'port': process.env.PORT || 8080,
+    'database': 'mongodb://localhost/admin',
+    'secret': 'ilovescotchscotchyscotchscotch'
+};
