@@ -1,16 +1,21 @@
-var request = require('request'),
-    Q = require('q');
+var Q = require('q');
 
 module.exports = function(schema) {
-    var db;
+    var db = {};
 
-    db.isExist = function(query) {
-        schema.find(query, function (err, wave) {
+    db.findAndReturnItem = function(query) {
+        var deferred = Q.defer();
+        item = schema.find(query, function (err, item) {
             if (err) {
-                return false;
+                deferred.reject(err);
             } else {
-                return true;
+                deferred.resolve(item);
             }
         });
-    }
+
+        return deferred.promise;
+    };
+
+
+    return db;
 };
