@@ -1,8 +1,7 @@
-var communication = require('./services/communication.js'),
-    Wave = require('./models/wave.js'),
+var communication = require('./services/communication'),
+    Wave = require('./models/wave'),
     config = require('../config'),
     $ = require('cheerio'),
-    mongoose = require('mongoose'),
     propArr = ["time", "hMax", "hS", "hThird", "direction", "tAv", "tZ", "tP", "temperature"],
     mongoAbstract = require('./services/mongoAbstract.js')(Wave);
 
@@ -42,7 +41,9 @@ var waveHtmlToJson = function(data, city) {
 var storeData = function(data) {
     var wave = new Wave();
 
-    mongoose.connect(config.database);
+    if (!(data.time.length > 0)) {
+        return false;
+    }
 
     mongoAbstract.findAndReturnItem({city: data.city}).then(function(result) {
         if (result.length > 0) {
@@ -74,9 +75,10 @@ var storeData = function(data) {
 
 
 module.exports = {
-    getCity: function(city) {
-        communication.httpGet("http://israelwaves.info/server/waves_prox.php?place=" + city).then(function(data) {
-            storeData(waveHtmlToJson(data, city));
+    updateCityWave: function(city) {
+        communication.httpGet("http://www.israports.co.il/_layouts/IsraelPorts/WaveHeight/" + city + "w-ipa.html").then(function(data) {
+       // communication.httpGet("http://israelwaves.info/server/waves_prox.php?place=" + city).then(function(data) {
+                storeData(waveHtmlToJson(data, city));
 
     })}
 };
