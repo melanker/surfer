@@ -5,7 +5,9 @@ var express = require('express'),
     path = require('path'),
     waves = require('./app/waves_proxy'),
     mongoose = require('mongoose'),
+    mobile = require('./app/services/detect_mobile');
     cities = require('./app/city_proxy');
+
 
 // use body parser so we can grab information from POST requests
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,7 +28,7 @@ setInterval(function () {
     cities.updateCityWeather("Netanya");
     cities.updateCityWeather("Haifa");
     cities.updateCityWeather("Nahariya");
-}, 24000000);
+}, 2400000);
 
 
 // ROUTES FOR OUR API =================
@@ -39,7 +41,12 @@ app.use('/api', router);
 // SEND USERS TO FRONTEND ------------
 // has to be registered after API ROUTES
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + (config.development ? '/public/app/views/index_dev.html' : '/public/app/views/index.html')));
+    var mObj = mobile.isMobile(req.headers['user-agent']);
+    if (mObj.Mobile) {
+        res.sendFile(path.join(__dirname + '/public/mobile_app/index.html'));
+    } else {
+        res.sendFile(path.join(__dirname + (config.development ? '/public/app/views/index_dev.html' : '/public/app/views/index.html')));
+    }
 });
 
 

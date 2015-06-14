@@ -1,0 +1,51 @@
+﻿<div class="container contentInfo" dir="rtl">
+    <h3>מידע על האתר</h3>
+    <div class="tableContent col-md-4 col-xs-4 col-sm-4 col-lg-4">
+        <ul>
+            <li class="icon">
+                <div class="fa fa-tint"></div>
+            </li>
+            <li class="information">
+                <h4>מידע מהמצופים</h4>
+                <div>מידע ממצוף נמל חיפה וממצוף נמל אשדוד. לצערנו כיום המצופים מתעדכנים אחת לכמה שעות</div>
+            </li>
+        </ul>
+        <ul>
+            <li class="icon">
+                <div class="fa fa-cloud"></div>
+            </li>
+            <li class="information">
+                <h4>מידע על מזג האויר</h4>
+                <div>מידע עדכני על טמפרטורה, עוצמת רוח וכיוון</div>
+            </li>
+        </ul>
+        <ul>
+            <li class="icon">
+                <div class="fa fa-mobile"></div>
+            </li>
+            <li class="information">
+                <h4>תמיכה במובייל</h4>
+                <div>תמיכה מהירה במשתמשי המובייל, אין צורך להוריד אפליקציה ייעודית, פשוט לשמור קישור לאתר והאתר יתאים את עצמו למכשיר</div>
+            </li>
+        </ul>
+        <ul>
+            <li class="icon">
+                <div class="fa fa-cogs"></div>
+            </li>
+            <li class="information">
+                <h4>קל לשימוש</h4>
+                <div>פשוט לבחור את העיר ולקבל תחזית</div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <high-chart class="col-md-6 col-xs-6 .col-sm-6 col-lg-6" data="ashdod.data"></high-chart>
+    <div class="ashdodLoading" ng-show="ashdodLoading">
+        <img src="/public/assets/img/loading.gif"/>
+    </div>
+    <high-chart class="col-md-6 col-xs-6 .col-sm-6 col-lg-6" data="haifa.data"></high-chart>
+    <div class="haifaLoading" ng-show="haifaLoading">
+        <img src="/public/assets/img/loading.gif"/>
+    </div>
+</div>

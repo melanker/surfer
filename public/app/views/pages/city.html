@@ -1,0 +1,51 @@
+<div class="container-fluid cityContent" dir="rtl">
+    <div class="row">
+        <div class="loading" ng-show="loadingCity">
+            <img src="/public/assets/img/loading.gif"/>
+        </div>
+        <div class="jumbotron details col-md-3 col-xs-3 col-sm-3 col-lg-3 col-md-offset-3 col-xs-offset-3 col-sm-offset-3 col-lg-offset-3">
+            <h1>{{title}}</h1>
+            <p>{{details}}</p>
+            <span>ההמלצה למעלה  תלויה בשעת עידכון המצופים האחרונה</span>
+        </div>
+        <div class="weatherCurrent col-md-3 col-xs-3 col-sm-3 col-lg-3" ng-hide="loadingCity">
+            <div class="header">
+                <div class="title">
+                    <div class="cloudsImg" ng-style="weatherIcon"></div>
+                    <div class="temp">{{temp}}&deg</div>
+                </div>
+                <div class="lastUpdated">{{lastUpdate}}</div>
+            </div>
+            <table class="table table-condensed">
+                <tr>
+                    <td>גובה גל ממוצע</td>
+                    <td class="waves">{{waveHeight}} מטר</td>
+                </tr>
+                <tr>
+                    <td>טמפרטורת מים</td>
+                    <td class="seaTemp">{{seaTemp}}&deg</td>
+                </tr>
+                <tr>
+                    <td>עוצמת רוח בקשר</td>
+                    <td>
+                        <span class="speed">{{windSpeedKnots}} קשר</span>
+                        <span class="direction" ng-style="direction"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>זריחה</td>
+                    <td class="sunrise">{{sunrise}}</td>
+                </tr>
+                <tr>
+                    <td>שקיעה</td>
+                    <td class="sunset">{{sunset}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="imgContainer">
+            <img id="imgStat" class="img-circle" ng-src={{imgBackground.src}}>
+        </div>
+    </div>
+</div>

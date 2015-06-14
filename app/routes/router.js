@@ -1,6 +1,7 @@
 var Wave = require('../models/wave'),
     City = require('../models/city'),
     cities = require('./../city_proxy');
+    mail = require('./../services/nodemailer');
 
 module.exports = function(app, express) {
     var router = express.Router();
@@ -21,6 +22,10 @@ module.exports = function(app, express) {
             });
         });
 
+    router.route('/mail')
+        .post(function(req, res){
+           mail.sendMail({from: req.body.email, title: req.body.name, text: req.body.message});
+        });
 
     return router;
 };
