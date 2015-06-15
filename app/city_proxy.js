@@ -42,7 +42,7 @@ var storeData = function(data) {
 
 module.exports = {
     updateCityWeather: function(city) {
-        communication.httpGet("http://api.openweathermap.org/data/2.5/weather?id=" + cityMap[city] + "&units=metric").then(function(data) {
+        communication.httpGet("http://api.openweathermap.org/data/2.5/weather?id=" + cityMap[city] + "&units=metric" + (config.development ? "" : "&APPID=65979c59499d18cff77bbcfd2c8bdce6")).then(function(data) {
             storeData(data);
         })},
     cityMap: cityMap
