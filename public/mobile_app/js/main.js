@@ -1,5 +1,5 @@
 $(function (){
-    var idAndClassesMap, updateChart, updateWaveInfo, updateWaveInfo, initFunction;
+    var idAndClassesMap, updateChart, updateWaveInfo, initFunction;
 
     idAndClassesMap = {
         ashdodChart: "#ashdodChart",
@@ -28,28 +28,27 @@ $(function (){
     };
 
     updateChart = function(name) {
-        var dataLength = SurfInfo.webApp.charts[name + "Data"].data.length,
-            chartData = SurfInfo.webApp.charts[name + "Data"].data;
+        var parseArrIntoFloat = function(arr) {
+            var parsedArr = [];
 
-        SurfInfo.webApp.charts[name + "Data"].dataHmax = [];
-        SurfInfo.webApp.charts[name + "Data"].dataHs = [];
-        SurfInfo.webApp.charts[name + "Data"].dataTime = [];
+            if (!arr || arr.length === 0) {return [];}
 
-        for (var i = 1; i < dataLength; i += 1) {
-            SurfInfo.webApp.charts[name + "Data"].dataHmax.push(chartData[i].hMax);
-            SurfInfo.webApp.charts[name + "Data"].dataHs.push(chartData[i].hS);
-            SurfInfo.webApp.charts[name + "Data"].dataTime.push(chartData[i].time);
-        }
+            for (var i=0; i < arr.length; i += 1) {
+                parsedArr.push(parseFloat(arr[i]));
+            }
+
+            return parsedArr;
+        };
 
         $(idAndClassesMap[name + "Chart"]).highcharts({
             chart: {
                 type: 'areaspline'
             },
             title: {
-                text: SurfInfo.webApp.charts[name + "Data"].data[0].day + "  " + SurfInfo.webApp.charts[name + "Data"].title || SurfInfo.webApp.charts[name + "Data"].title
+                text: (SurfInfo.webApp.charts[name + "Data"].data.date || "") + "  " + SurfInfo.webApp.charts[name + "Data"].title
             },
             xAxis: {
-                categories: SurfInfo.webApp.charts[name + "Data"].dataTime
+                categories: SurfInfo.webApp.charts[name + "Data"].data.time || []
             },
             yAxis: {
                 title: {
@@ -70,10 +69,10 @@ $(function (){
             },
             series: [{
                 name: 'גל מקסימלי',
-                data: SurfInfo.webApp.charts[name + "Data"].dataHmax
+                data: parseArrIntoFloat(SurfInfo.webApp.charts[name + "Data"].data.hMax) || []
             }, {
                 name: 'גל ממוצע',
-                data: SurfInfo.webApp.charts[name + "Data"].dataHs
+                data: parseArrIntoFloat(SurfInfo.webApp.charts[name + "Data"].data.hS) || []
             }]
         });
     };
@@ -95,39 +94,16 @@ $(function (){
     };
 
     updateWaveInfo = function () {
-        var parseHtml, buildData, initiateUpdateSeq, deferreds ;
+        var getData, initiateUpdateSeq, deferreds ;
 
         deferreds  = [];
 
-        parseHtml = function(rowJq, day) {
-            var currentRowJq = rowJq.find('td'),
-                dataObj = {
-                    day: day || "",
-                    time: currentRowJq.eq(0).text() || "-",
-                    hMax: parseFloat(currentRowJq.eq(1).text()) || "-",
-                    hS: parseFloat(currentRowJq.eq(2).text()) || "-",
-                    hThird: parseFloat(currentRowJq.eq(3).text()) || "-",
-                    direction: currentRowJq.eq(4).text() || "-",
-                    tAv: currentRowJq.eq(5).text() || "-",
-                    tZ: currentRowJq.eq(6).text() || "-",
-                    tP: currentRowJq.eq(7).text() || "-",
-                    temp: currentRowJq.eq(8).text()
-                };
-
-            return dataObj;
-        };
-
-        buildData = function(url) {
+        getData = function(url) {
             var deferred = $.Deferred();
             deferreds.push(deferred.promise());
 
-            SurfInfo.communication.http(url, 'GET').then(function(data) {
-                var todayWaves = [];
-
-                $.each($(data).find("table").eq(0).find('tr'), function(key, val) {
-                    todayWaves.push(parseHtml($(val), $(data).find("[size='+1']").eq(0).text()));
-                });
-                deferred.resolve(todayWaves);
+            SurfInfo.communication.http(url, 'GET').then(function(res) {
+                deferred.resolve(res.data);
             });
 
             return deferred.promise();
@@ -141,18 +117,18 @@ $(function (){
 
             SurfInfo.webApp.charts[name + "Data"].data = data;
             updateChart(name);
-            heightJq.text(SurfInfo.webApp.charts[name + "Data"].dataHs[SurfInfo.webApp.charts[name + "Data"].dataHs.length - 1] + "m" + " - " +
-                          SurfInfo.webApp.charts[name + "Data"].dataHmax[SurfInfo.webApp.charts[name + "Data"].dataHmax.length - 1] + "m");
-            dateJq.text(SurfInfo.webApp.charts[name + "Data"].data[0].day);
-            hourJq.text(SurfInfo.webApp.charts[name + "Data"].dataTime[SurfInfo.webApp.charts[name + "Data"].dataTime.length - 1]);
-            tempJq.html(SurfInfo.webApp.charts[name + "Data"].data[SurfInfo.webApp.charts[name + "Data"].data.length - 1].temp + "&deg");
+            heightJq.text(SurfInfo.webApp.charts[name + "Data"].data.hS[SurfInfo.webApp.charts[name + "Data"].data.hS.length - 1] + "m" + " - " +
+                          SurfInfo.webApp.charts[name + "Data"].data.hMax[SurfInfo.webApp.charts[name + "Data"].data.hMax.length - 1] + "m");
+            dateJq.text(SurfInfo.webApp.charts[name + "Data"].data.date);
+            hourJq.text(SurfInfo.webApp.charts[name + "Data"].data.time[SurfInfo.webApp.charts[name + "Data"].data.time.length - 1]);
+            tempJq.html(SurfInfo.webApp.charts[name + "Data"].data.temperature[SurfInfo.webApp.charts[name + "Data"].data.temperature.length - 1] + "&deg");
             SurfInfo.webApp.charts[name + "Data"].loadingJq.hide();
         };
 
-        buildData("/server/waves_prox.php?place=ashdod").then(function(data) {
+        getData("/api/waves/ashdod").then(function(data) {
             initiateUpdateSeq(data, "ashdod");
         });
-        buildData("/server/waves_prox.php?place=haifa").then(function(data) {
+        getData("/api/waves/haifa").then(function(data) {
             initiateUpdateSeq(data, "haifa");
         });
 
@@ -203,7 +179,7 @@ $(function (){
                 case "Herzliyya":
                     activateTab.call(liJq.eq(3));
                     break;
-                case "Tel-Aviv":
+                case "TelAviv":
                     activateTab.call(liJq.eq(4));
                     break;
                 case "Ashdod":

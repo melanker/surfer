@@ -12,13 +12,13 @@ wavesApp.directive('highChart', function($timeout) {
             var parseArrIntoFloat = function(arr) {
                 var parsedArr = [];
 
-                if (arr.length === 0) {return [];}
+                if (!arr || arr.length === 0) {return [];}
 
                 for (var i=0; i < arr.length; i += 1) {
-                    parsedArr.push(parseFloat(arr[i]))
+                    parsedArr.push(parseFloat(arr[i]));
                 }
 
-                return parsedArr
+                return parsedArr;
             };
 
             //scope.$watch("data",function (oldVal, newVal) {

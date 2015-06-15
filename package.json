@@ -21,8 +21,11 @@
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.12.4",
     "cheerio": "^0.19.0",
+    "del": "^1.2.0",
     "express": "^4.12.4",
     "gulp": "^3.9.0",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "^1.2.0",
     "http": "0.0.0",
     "mongoose": "^2.0.5",
     "morgan": "^1.5.3",
@@ -33,8 +36,11 @@
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-concat": "^2.5.2",
+    "gulp-jshint": "^1.11.0",
     "gulp-less": "^3.0.3",
     "gulp-minify-css": "^1.1.6",
-    "gulp-rename": "^1.2.2"
+    "gulp-ng-annotate": "^1.0.0",
+    "gulp-rename": "^1.2.2",
+    "run-sequence": "^1.1.0"
   }
 }

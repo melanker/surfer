@@ -2,7 +2,7 @@ wavesApp.factory('appConstants', function() {
     return {
         WAVES_API: "/api/waves/",
         CITY_API: "/api/"
-    }
+    };
 });
 
 

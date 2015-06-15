@@ -13,3 +13,4 @@ SurfInfo.getTime = function (time) {
     var m = addZero(d.getMinutes());
     return  h + ":" + m;
 };
+

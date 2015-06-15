@@ -57,7 +57,7 @@ wavesApp.controller('CityCtrl', function ($scope, $httpDefer, appConstants, $rou
             windDirection = "דרומית מזרחית";
         }  else if (($scope.currentCity.wind.deg >= 170 && $scope.currentCity.wind.deg <= 190)) {
             windDirection = "דרומית";
-            windText = "קחו לתשומת ליבכם שרוח דרומית הינה בעלת השפעה קטנה על הגל"
+            windText = "קחו לתשומת ליבכם שרוח דרומית הינה בעלת השפעה קטנה על הגל";
         }  else if (($scope.currentCity.wind.deg > 190 && $scope.currentCity.wind.deg < 260)) {
             windDirection = "מערבית דרומית";
         }  else if (($scope.currentCity.wind.deg >= 260 && $scope.currentCity.wind.deg <= 280)) {
@@ -66,7 +66,7 @@ wavesApp.controller('CityCtrl', function ($scope, $httpDefer, appConstants, $rou
             windDirection = "מערבית צפונית";
         }  else if (($scope.currentCity.wind.deg >= 360 || ( $scope.currentCity.wind.deg >= 0 && $scope.currentCity.wind.deg <= 10))) {
             windDirection = "צפונית";
-            windText = "קחו לתשומת ליבכם שרוח צפונית הינה בעלת השפעה קטנה על הגל"
+            windText = "קחו לתשומת ליבכם שרוח צפונית הינה בעלת השפעה קטנה על הגל";
         } else {
             windDirection = "צפונית מזרחית";
         }
