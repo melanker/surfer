@@ -21,18 +21,15 @@ wavesApp.directive('highChart', function($timeout) {
                 return parsedArr;
             };
 
-            //scope.$watch("data",function (oldVal, newVal) {
-            //    console.log(newVal);
-            //    if (!newVal || !newVal.city) {return;}
-
-            //if (!newVal || !newVal.city) {return;}
+            scope.$watch("data",function (oldVal, newVal) {
                 console.log("DATA", scope.$eval("data"));
+
                 element.highcharts({
                     chart: {
                         type: 'areaspline'
                     },
                     title: {
-                        text: (scope.$eval("data.date") || "") + ",  " + (scope.$eval("data.city") ? scope.$eval("data.city").toUpperCase() : ""),
+                        text: (scope.$eval("data.date") || "") + ",  " + (scope.$eval("data.city") ? (scope.$eval("data.city").toUpperCase() === "ASHDOD" ? "אשדוד" : "חיפה") : ""),
                         style: {
                             "color": "#333", "fontSize": "16px", "fontWeight": "bold", "fontFamily": "almoni-dl-regular, Arial"
                         }
@@ -65,7 +62,7 @@ wavesApp.directive('highChart', function($timeout) {
                         data: parseArrIntoFloat(scope.$eval("data.hS")) || []
                     }]
                 });
-            //})
+            })
         }
     };
 });
