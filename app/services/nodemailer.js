@@ -1,4 +1,6 @@
-var nodemailer = require('nodemailer');
+var nodemailer = require('nodemailer'),
+    Q = require('q');
+
 
 var smtpTransport = nodemailer.createTransport({
     service: "Gmail",
@@ -17,6 +19,8 @@ module.exports = {
 
 
     sendMail: function(obj) {
+        var deferred = Q.defer();
+
         smtpTransport.sendMail({
             from: obj.from, //obj.from,
             to: 'israelwaves@gmail.com',
@@ -24,12 +28,13 @@ module.exports = {
             text: obj.text
         }, function(err, responseStatus) {
             if (err) {
-                res.json(err);
+                deferred.reject(err);
             } else {
-                res.json(responseStatus);
+                deferred.resolve(responseStatus);
             }
         });
-    }
 
+        return deferred.promise;
+    }
 
 };

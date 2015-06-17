@@ -25,7 +25,11 @@ module.exports = function(app, express) {
 
     router.route('/mail')
         .post(function(req, res){
-           mail.sendMail({from: req.body.email, title: req.body.name, text: req.body.message});
+           mail.sendMail({from: req.body.email, title: req.body.name, text: req.body.message}).then( function(response) {
+               res.json({success: response});
+           } , function(err) {
+               res.json({error: err});
+           });
         });
 
     return router;
