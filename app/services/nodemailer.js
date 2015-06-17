@@ -14,17 +14,19 @@ var smtpTransport = nodemailer.createTransport({
 
 
 module.exports = {
+
+
     sendMail: function(obj) {
         smtpTransport.sendMail({
-            from: obj.from,
-            to: locals.email,
-            subject: obj.title,
+            from: obj.from, //obj.from,
+            to: 'israelwaves@gmail.com',
+            subject: obj.from + ", " +  obj.title,
             text: obj.text
         }, function(err, responseStatus) {
             if (err) {
-                console.log(err);
+                res.json(err);
             } else {
-                console.log(responseStatus.message);
+                res.json(responseStatus);
             }
         });
     }
