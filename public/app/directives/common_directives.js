@@ -15,7 +15,7 @@ wavesApp.directive('highChart', function($timeout) {
                 if (!arr || arr.length === 0) {return [];}
 
                 for (var i=0; i < arr.length; i += 1) {
-                    parsedArr.push(parseFloat(arr[i]));
+                    parsedArr.push(parseFloat(arr[i]) || 0);
                 }
 
                 return parsedArr;
