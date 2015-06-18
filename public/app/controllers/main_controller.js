@@ -1,12 +1,14 @@
-wavesApp.controller('MainCtrl', function ($scope, $httpDefer, appConstants, $timeout) {
-    var setup, cityMap = {
+wavesApp.controller('MainCtrl', function ($scope, $httpDefer, appConstants, $timeout, $q) {
+    var cityMap = {
         ashdod: "ashdod",
         haifa: "haifa"
     };
 
     $scope.city = undefined;
 
-    setup = function(cityName) {
+    $scope.setup = function(cityName) {
+        var deferred = $q.defer();
+
         $scope[cityMap[cityName] + "Loading"] = true;
 
         $httpDefer.ajax({ method: "GET", url: appConstants.WAVES_API + cityName}).then(function(res) {
@@ -16,7 +18,6 @@ wavesApp.controller('MainCtrl', function ($scope, $httpDefer, appConstants, $tim
                     lastUpdateDate: "",
                     lastUpdateHour: "",
                     seaTemp: ""
-
                 };
                 $scope[cityMap[cityName]].data = res.data;
 
@@ -27,13 +28,16 @@ wavesApp.controller('MainCtrl', function ($scope, $httpDefer, appConstants, $tim
                     seaTemp:  res.data.temperature[res.data.temperature.length - 1]
                 });
                 $scope[cityMap[cityName] + "Loading"] = false;
+                deferred.resolve();
             }, 500);
         }, function(err){
             console.log(err);
+            deferred.reject(err);
         });
+        return deferred.promise;
     };
 
-    setup(cityMap.ashdod);
-    setup(cityMap.haifa);
+    $scope.setup(cityMap.ashdod);
+    $scope.setup(cityMap.haifa);
 
 });

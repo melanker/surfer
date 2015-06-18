@@ -1,4 +1,4 @@
-wavesApp.controller('CityCtrl', function ($scope, $httpDefer, appConstants, $routeParams, timeFormatter) {
+wavesApp.controller('CityCtrl', function ($scope, $httpDefer, appConstants, $routeParams, timeFormatter, $q) {
     var populateCityTable, prepareReport;
 
     $scope.loadingCity = true;
@@ -124,11 +124,23 @@ wavesApp.controller('CityCtrl', function ($scope, $httpDefer, appConstants, $rou
         $scope.details = details;
     };
 
-    $httpDefer.ajax({ method: "GET", url: appConstants.CITY_API + $scope.city}).then(function(res){
-        $scope.currentCity = res.data;
+    var initSeq = function () {
         populateCityTable();
         prepareReport();
         $scope.loadingCity = false;
+    };
+
+    $httpDefer.ajax({ method: "GET", url: appConstants.CITY_API + $scope.city}).then(function(res){
+        $scope.currentCity = res.data;
+
+
+        if (!$scope.ashdod || !$scope.haifa) {
+            $q.all([$scope.setup("ashdod"), $scope.setup("haifa")]).then(function () {
+                initSeq();
+            });
+        } else {
+            initSeq();
+        }
     }, function(err){
         console.log(err);
     });
