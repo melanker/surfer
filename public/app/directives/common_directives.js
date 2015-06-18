@@ -22,8 +22,6 @@ wavesApp.directive('highChart', function($timeout) {
             };
 
             scope.$watch("data",function (oldVal, newVal) {
-                console.log("DATA", scope.$eval("data"));
-
                 element.highcharts({
                     chart: {
                         type: 'areaspline'
@@ -62,7 +60,37 @@ wavesApp.directive('highChart', function($timeout) {
                         data: parseArrIntoFloat(scope.$eval("data.hS")) || []
                     }]
                 });
-            })
+            });
         }
     };
 });
+
+
+//wavesApp.directive('mailDialog', function($timeout) {
+//    return {
+//        restrict: 'E',
+//        scope: {
+//            data: '='
+//        },
+//        templateUrl: '/public/app/views/pages/mail_dialog.html',
+//        link: function (scope, element) {
+//            var form = $(element).find('#ajax-contact'),
+//                contactMeJq = $(element).find("#contactMe");
+//
+//            $(form).submit(function(event) {
+//                var formData = $(form).serialize();
+//                $httpDefer.ajax({url: $(form).attr('action'),method: 'POST',data: $(form).serialize()}).then(function(data) {
+//
+//                }, function (data) {
+//                    var notifyJq = $("#notifyDialog");
+//                    setTimeout(function () {notifyJq.modal("show")}, 1000);
+//                    notifyJq.find("p").text("בעיה עם שליחת המייל, יתכן והמייל שהזנת לא תקין. נסה שוב");
+//                    setTimeout(function () {notifyJq.modal("hide")}, 8000);
+//                });
+//                contactMeJq.modal('hide');
+//                contactMeJq.find("input, textarea").val('');
+//                return false;
+//            });
+//        }
+//    };
+//});

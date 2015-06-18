@@ -58,7 +58,6 @@ app.get('/', function(req, res) {
 });
 
 
-
 // START THE SERVER
 // ====================================
 app.listen(config.port);

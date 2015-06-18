@@ -96,59 +96,11 @@
             <img id="imgStat" alt="img" class="img-circle">
         </div>
     </div>
-    <div class="modal fade col-md-12 col-xs-12 col-sm-12 col-lg-12" id="contactMe" dir="rtl">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" >צור קשר</h4>
-                </div>
-                <form id="ajax-contact" method="post" action="/mail">
-                    <div class="modal-body">
-                        <div class="field">
-                            <label for="name">שם מלא</label>
-                            <input type="text" id="name" name="name" class="form-control" placeholder="הכנס שם" required>
-                        </div>
-
-                        <div class="field">
-                            <label for="email">מייל</label>
-                            <input dir="ltr" type="email" id="email" class="form-control" name="email" placeholder="הכנס את כתובת המייל שלך" required>
-                        </div>
-
-                        <div class="field">
-                            <label for="message">הודעה</label>
-                            <textarea id="message" name="message" class="form-control" rows="3" required></textarea>
-                        </div>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">סגור</button>
-                        <button type="submit" class="btn btn-primary">שלח</button>
-                    </div>
-                </form>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-    <div class="modal fade" id="notifyDialog" dir="rtl">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" >שגיאה</h4>
-                </div>
-                <div class="modal-body">
-                    <p></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">סגור</button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
     <div class="footer" data-role="footer" data-position="fixed">
         <div class="copyRights">&copy 2015 Israel Waves.</div>
         <div class="groupFooter">
             <div class="fb-like" data-href="https://www.facebook.com/israelwaves.info" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
             <i class="fa fa-facebook-official followUs"><a href="https://www.facebook.com/israelwaves.info" title="תעקבו אחרנו בפייסבוק"></a></i>
-            <i class="fa fa-envelope-square contactMe"><a data-toggle="modal" data-target="#contactMe" title="צרו קשר איתנו"></a></i>
         </div>
     </div><!-- /footer -->
 </div>

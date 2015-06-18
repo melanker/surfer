@@ -9,8 +9,6 @@ wavesApp.controller('MainCtrl', function ($scope, $httpDefer, appConstants, $tim
     setup = function(cityName) {
         $scope[cityMap[cityName] + "Loading"] = true;
 
-
-
         $httpDefer.ajax({ method: "GET", url: appConstants.WAVES_API + cityName}).then(function(res) {
             $timeout(function() {
                 $scope[cityMap[cityName]] = {
