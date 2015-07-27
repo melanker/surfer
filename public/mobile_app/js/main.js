@@ -195,5 +195,4 @@ $(function (){
         SurfInfo.webApp.charts.haifaData.loadingJq.show();
         updateWaveInfo();
     } ();
-
 });

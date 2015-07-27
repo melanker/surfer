@@ -28,7 +28,7 @@ setInterval(function () {
     cities.updateCityWeather("Netanya");
     cities.updateCityWeather("Haifa");
     cities.updateCityWeather("Nahariya");
-}, 240000);
+}, 5000000);
 
 
 // ROUTES FOR OUR API =================
