@@ -1,11 +1,53 @@
-$(function (){
+var webApp = {
+    idAndClassesMap: {
+        ashdodChart: "#ashdodChart",
+        haifaChart: "#haifaChart",
+        ashdodStatus: ".ashdodStatus",
+        haifaStatus: ".haifaStatus"
+    },
+    charts: {
+        ashdodData: {
+            loadingJq: $(".ashdodLoading"),
+            title: "אשדוד",
+            day: "",
+            data: null
+        },
+        haifaData: {
+            loadingJq: $(".haifaLoading"),
+            title: "חיפה",
+            day: "",
+            data: null
+        }
+    }
+};
+
+
+$(function () {
+    var controller, initMainCity, cityArr, graph, main, logoJq, navJq, animationFlag = false;
+
+    logoJq = $(".logo");
+    navJq = $(".nav");
     // init controller
-    var controller = new ScrollMagic.Controller({globalSceneOptions: {}});
+    controller = new ScrollMagic.Controller({globalSceneOptions: {}});
+
+    initMainCity = function(name) {
+        if ((webApp.charts[name + "Data"].data)) {return;}
+
+        main = new webApp.Main();
+        main.getData("/api/waves/" + name).then(function (res) {
+            webApp.charts[name + "Data"].data = res.data;
+            graph = new webApp.Graph(name);
+        });
+    };
 
     // build scenes
     new ScrollMagic.Scene({triggerElement: "#main", duration: "200%"})
         .setClassToggle(".main", "active")
         .addTo(controller)
+        .on("enter", function () {
+            initMainCity("ashdod");
+            initMainCity("haifa");
+        })
         .addIndicators();
     new ScrollMagic.Scene({triggerElement: "#Nahariya", duration: "120%"})
         .setClassToggle(".nahariya", "active")
@@ -32,6 +74,31 @@ $(function (){
         .addTo(controller)
         .addIndicators();
 
+
+    $(document).scroll(function() {
+      if  (($(document).scrollTop() > 0) && !animationFlag) {
+        animationFlag = true;
+        logoJq.animate({top: "-50px"}, 400, function () {
+            logoJq.hide();
+        });
+        navJq.animate({top: "-50px"}, 400, function () {
+            navJq.css({top: "0"});
+        });
+      }
+    if  (($(document).scrollTop() === 0) && animationFlag) {
+        animationFlag = false;
+
+
+        navJq.animate({top: "50px"}, 400, function () {
+            navJq.css({top: "0"});
+            logoJq.show();
+            logoJq.animate({top: "0"}, 400, function () {
+
+            });
+        });
+    }
+      //  console.log($(document).scrollTop());
+    });
     // change behaviour of controller to animate scroll instead of jump
 
     controller.scrollTo(function (newpos) {
@@ -53,6 +120,4 @@ $(function (){
             }
         }
     });
-
-
 });

@@ -13,17 +13,22 @@
     <script src="/public/assets/libs/scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
     <script src="/public/assets/libs/scrollmagic/greensock/plugins/ScrollToPlugin.min.js"></script>
     <script src="/public/assets/libs/scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>
+    <link rel="stylesheet" href="/public/assets/libs/font-awesome-4.3.0/css/font-awesome.min.css">
     <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">-->
     <link rel="stylesheet" href="/public/assets/libs/bootstrap-3.3.4-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/public/assets/libs/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css">
     <script src="/public/assets/libs/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
     <script src="/public/app/js/main.js"></script>
+    <script src="/public/app/js/services.js"></script>
+    <script src="/public/app/js/main_controller.js"></script>
+    <script src="/public/app/js/graph_controller.js"></script>
     <link rel="stylesheet" href="/public/assets/css/reset.css">
     <link rel="stylesheet/less" type="text/css" href="/public/assets/less/main.less" />
     <script type="text/javascript" src="/public/assets/libs/less.js-master/dist/less.min.js"></script>
 </head>
 <body>
     <header>
+        <div class="logo"></div>
         <ul class="nav nav-pills" dir="rtl">
             <li class="ashdod"><a href="#Ashdod">אשדוד</a></li>
             <li class="telaviv"><a href="#TelAviv">תל-אביב</a></li>
@@ -35,7 +40,8 @@
         </ul>
     </header>
     <section style="background-image: url(/public/assets/img/main_back.jpg);" id="main" class="parallaxParent parallaxHome">
-
+        <div id="ashdodChart" class="col-xs-10 col-md-10 col-sm-10 col-lg-10 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"></div>
+        <div id="haifaChart" class="col-xs-10 col-md-10 col-sm-10 col-lg-10 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"></div>
     </section>
     <section style="background-image: url(/public/assets/img/nahariya.jpg);" id="Nahariya" class="parallaxParent">
 

@@ -16,18 +16,35 @@ html, body {
 
 #main {
   height: 200%;
+
+  #ashdodChart, #haifaChart {
+    position: relative;
+    height: 20%;
+    top: 50%;
+  }
+
 }
 
 header {
+  z-index: 999;
   width: 100%;
   position: fixed;
+
+  .logo {
+    position: relative;
+    width: 394px;
+    height: 50px;
+    background-image: url(/public/assets/img/logo.png);
+  }
+
   ul {
+    position: relative;
     float: right;
     li {
       background-color: transparent !important;
       a {
         background-color: transparent !important;
-        font-size: 22px;
+        font-size: 30px;
         color: white !important;
 
         &:hover {
@@ -45,5 +62,7 @@ header {
     }
   }
 }
+
+
 
 

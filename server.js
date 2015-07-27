@@ -34,27 +34,27 @@ setInterval(function () {
 // ROUTES FOR OUR API =================
 // ====================================
 // API ROUTES ------------------------
-var router = require('./app/routes/router')(app, express),
-    mobileRouter = require('./app/routes/mobile_router')(app, express);
+var router = require('./app/routes/router')(app, express);
+    //mobileRouter = require('./app/routes/mobile_router')(app, express);
 app.use('/api', router);
-app.use('/mobile', mobileRouter);
+//app.use('/mobile', mobileRouter);
 
 // MAIN CATCHALL ROUTE ---------------
 // SEND USERS TO FRONTEND ------------
 // has to be registered after API ROUTES
 
-app.get('/mobile', function(req, res) {
-    res.sendFile(path.join(__dirname + (config.development ? '/public/mobile_app/index_dev.html' : '/public/mobile_app/index.html')));
-});
+//app.get('/mobile', function(req, res) {
+//    res.sendFile(path.join(__dirname + (config.development ? '/public/mobile_app/index_dev.html' : '/public/mobile_app/index.html')));
+//});
 
 app.get('/', function(req, res) {
-    var mObj = mobile.isMobile(req.headers['user-agent']);
-    if (mObj.Mobile) {
-        res.redirect('/mobile');
-
-    } else {
+   // var mObj = mobile.isMobile(req.headers['user-agent']);
+    //if (mObj.Mobile) {
+    //    res.redirect('/mobile');
+    //
+    //} else {
         res.sendFile(path.join(__dirname + (config.development ? '/public/app/views/index_dev.html' : '/public/app/views/index.html')));
-    }
+    //}
 });
 
 
