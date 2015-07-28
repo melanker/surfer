@@ -19,10 +19,10 @@ webApp.City.prototype.initCity = function() {
         weatherCurrentJq.find('.temp').html(self.dataObj.main.temp.toPrecision(4) + "&deg");
         self.dataObj.windSpeedKnots = (self.dataObj.wind.speed * 1.94384).toPrecision(4);
 
-        if (webApp.locationPath === "Haifa" || webApp.locationPath === "Nahariya") {
+        if (self.name === "Haifa" || self.name === "Nahariya") {
             self.dataObj.waveHeight = webApp.charts.haifaData.data.hS[webApp.charts.haifaData.data.hS.length - 1];
             weatherCurrentJq.find(".seaTemp").html(parseFloat(webApp.charts.haifaData.data.temperature[webApp.charts.haifaData.data.temperature.length - 1]) + "&deg");
-        } else if (webApp.locationPath === "Ashdod") {
+        } else if (self.name === "Ashdod") {
             self.dataObj.waveHeight = webApp.charts.ashdodData.data.hS[webApp.charts.ashdodData.data.hS.length - 1];
             weatherCurrentJq.find(".seaTemp").html(parseFloat(webApp.charts.ashdodData.data.temperature[webApp.charts.ashdodData.data.temperature.length - 1]) + "&deg");
         } else {
