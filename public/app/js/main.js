@@ -23,10 +23,20 @@ var webApp = {
 
 
 $(function () {
-    var controller, initMainCity, cityArr, graph, main, logoJq, navJq, animationFlag = false;
+    var controller, initMainCity, cityArr, graph, main, logoJq, navJq, docJq, jqMap, template, animationFlag = false;
 
+    template = $('.hiddenTemplate').html();
+    docJq = $(document);
     logoJq = $(".logo");
     navJq = $(".nav");
+    jqMap = {
+        haifaStatusJq: $(".haifaStatus"),
+        ashdodStatusJq: $(".ashdodStatus")
+    };
+    cityArr = ["Nahariya", "Haifa", "Netanya", "Herzliyya", "TelAviv", "Ashdod"];
+
+    haifaStatusJq = $(".haifaStatus").hide();
+    ashdodStatusJq = $(".ashdodStatus").hide();
     // init controller
     controller = new ScrollMagic.Controller({globalSceneOptions: {}});
 
@@ -35,7 +45,9 @@ $(function () {
 
         main = new webApp.Main();
         main.getData("/api/waves/" + name).then(function (res) {
+            jqMap[name + "StatusJq"].fadeIn(600);
             webApp.charts[name + "Data"].data = res.data;
+            main.setCity(name);
             graph = new webApp.Graph(name);
         });
     };
@@ -49,34 +61,25 @@ $(function () {
             initMainCity("haifa");
         })
         .addIndicators();
-    new ScrollMagic.Scene({triggerElement: "#Nahariya", duration: "120%"})
-        .setClassToggle(".nahariya", "active")
-        .addTo(controller)
-        .addIndicators();
-    new ScrollMagic.Scene({triggerElement: "#Haifa", duration: "120%"})
-        .setClassToggle(".haifa", "active")
-        .addTo(controller)
-        .addIndicators();
-    new ScrollMagic.Scene({triggerElement: "#TelAviv", duration: "120%"})
-        .setClassToggle(".telaviv", "active")
-        .addTo(controller)
-        .addIndicators();
-    new ScrollMagic.Scene({triggerElement: "#Ashdod", duration: "120%"})
-        .setClassToggle(".ashdod", "active")
-        .addTo(controller)
-        .addIndicators();
-    new ScrollMagic.Scene({triggerElement: "#Netanya", duration: "120%"})
-        .setClassToggle(".netanya", "active")
-        .addTo(controller)
-        .addIndicators();
-    new ScrollMagic.Scene({triggerElement: "#Herzliyya", duration: "120%"})
-        .setClassToggle(".herzliyya", "active")
-        .addTo(controller)
-        .addIndicators();
+
+    $.each(cityArr, function(index, cell) {
+        var city = new webApp.City(cell);
+        var duration = index === 5 ? "" : "120%"
+        $("#"+ cell).append(template);
+
+        new ScrollMagic.Scene({triggerElement: "#" + cell, duration: duration})
+            .setClassToggle("." + cell, "active")
+            .addTo(controller)
+            .on("enter", function () {
+                if (city.dataObj) {return;}
+                city.initCity();
+            })
+            .addIndicators();
+    });
 
 
-    $(document).scroll(function() {
-      if  (($(document).scrollTop() > 0) && !animationFlag) {
+    docJq.scroll(function() {
+      if  ((docJq.scrollTop() > 0) && !animationFlag) {
         animationFlag = true;
         logoJq.animate({top: "-50px"}, 400, function () {
             logoJq.hide();
@@ -85,14 +88,12 @@ $(function () {
             navJq.css({top: "0"});
         });
       }
-    if  (($(document).scrollTop() === 0) && animationFlag) {
+    if  ((docJq.scrollTop() === 0) && animationFlag) {
         animationFlag = false;
-
-
         navJq.animate({top: "50px"}, 400, function () {
             navJq.css({top: "0"});
             logoJq.show();
-            logoJq.animate({top: "0"}, 400, function () {
+            logoJq.animate({top: "0"}, 300, function () {
 
             });
         });

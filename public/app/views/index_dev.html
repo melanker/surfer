@@ -22,6 +22,7 @@
     <script src="/public/app/js/services.js"></script>
     <script src="/public/app/js/main_controller.js"></script>
     <script src="/public/app/js/graph_controller.js"></script>
+    <script src="/public/app/js/city_controller.js"></script>
     <link rel="stylesheet" href="/public/assets/css/reset.css">
     <link rel="stylesheet/less" type="text/css" href="/public/assets/less/main.less" />
     <script type="text/javascript" src="/public/assets/libs/less.js-master/dist/less.min.js"></script>
@@ -30,38 +31,87 @@
     <header>
         <div class="logo"></div>
         <ul class="nav nav-pills" dir="rtl">
-            <li class="ashdod"><a href="#Ashdod">אשדוד</a></li>
-            <li class="telaviv"><a href="#TelAviv">תל-אביב</a></li>
-            <li class="herzliyya"><a href="#Herzliyya">הרצליה</a></li>
-            <li class="netanya"><a href="#Netanya">נתניה</a></li>
-            <li class="haifa"><a href="#Haifa">חיפה</a></li>
-            <li class="nahariya"><a href="#Nahariya">נהריה</a></li>
+            <li class="Ashdod"><a href="#Ashdod">אשדוד</a></li>
+            <li class="TelAviv"><a href="#TelAviv">תל-אביב</a></li>
+            <li class="Herzliyya"><a href="#Herzliyya">הרצליה</a></li>
+            <li class="Netanya"><a href="#Netanya">נתניה</a></li>
+            <li class="Haifa"><a href="#Haifa">חיפה</a></li>
+            <li class="Nahariya"><a href="#Nahariya">נהריה</a></li>
             <li class="main"><a href="#main">ראשי</a></li>
         </ul>
     </header>
     <section style="background-image: url(/public/assets/img/main_back.jpg);" id="main" class="parallaxParent parallaxHome">
+        <div dir="rtl" class="ashdodStatus jumbotron col-md-6 col-xs-6 col-sm-6 col-lg-6 col-xs-offset-3 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+            <h1>אשדוד</h1>
+            <div>גובה גל</div><span class="height"></span><br />
+            <div>תאריך עידכון מצוף</div><span class="date" dir="ltr"></span><br />
+            <div>שעת עידכון מצוף</div><span class="hour"></span><br />
+            <div>טמפרטורת מים</div><span class="temp"><span>&deg</span></span><br />
+        </div>
+        <div dir="rtl" class="haifaStatus jumbotron col-md-6 col-xs-6 col-sm-6 col-lg-6 col-xs-offset-3 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+            <h1>חיפה</h1>
+            <div>גובה גל</div><span class="height"></span><br />
+            <div>תאריך עידכון מצוף</div><span class="date" dir="ltr"></span><br />
+            <div>שעת עידכון מצוף</div><span class="hour"></span><br />
+            <div>טמפרטורת מים</div><span class="temp"><span>&deg</span></span><br />
+        </div>
+
+        <div class="ashdodStatus"></div>
+        <div class="haifaStatus"></div>
         <div id="ashdodChart" class="col-xs-10 col-md-10 col-sm-10 col-lg-10 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"></div>
         <div id="haifaChart" class="col-xs-10 col-md-10 col-sm-10 col-lg-10 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"></div>
     </section>
-    <section style="background-image: url(/public/assets/img/nahariya.jpg);" id="Nahariya" class="parallaxParent">
-
-    </section>
-    <section style="background-image: url(/public/assets/img/haifa.jpg);" id="Haifa" class="parallaxParent">
-
-    </section>
-    <section style="background-image: url(/public/assets/img/netanya.jpg);" id="Netanya" class="parallaxParent">
-
-    </section>
-    <section style="background-image: url(/public/assets/img/herzliyya.jpg);" id="Herzliyya" class="parallaxParent">
-
-    </section>
-    <section style="background-image: url(/public/assets/img/telaviv.jpg);" id="TelAviv" class="parallaxParent">
-
-    </section>
-    <section style="background-image: url(/public/assets/img/ashdod.jpg);" id="Ashdod" class="parallaxParent">
-
-    </section>
-
+    <section style="background-image: url(/public/assets/img/nahariya.jpg);" id="Nahariya" class="parallaxParent"></section>
+    <section style="background-image: url(/public/assets/img/haifa.jpg);" id="Haifa" class="parallaxParent"></section>
+    <section style="background-image: url(/public/assets/img/netanya.jpg);" id="Netanya" class="parallaxParent"></section>
+    <section style="background-image: url(/public/assets/img/herzliyya.jpg);" id="Herzliyya" class="parallaxParent"></section>
+    <section style="background-image: url(/public/assets/img/telaviv.jpg);" id="TelAviv" class="parallaxParent"></section>
+    <section style="background-image: url(/public/assets/img/ashdod.jpg);" id="Ashdod" class="parallaxParent"></section>
+    <script class="hiddenTemplate" type="text/x-custom-template">
+        <div class="container-fluid cityContent" dir="rtl">
+            <div class="row">
+                <div class="jumbotron details col-md-3 col-xs-3 col-sm-3 col-lg-3 col-md-offset-3 col-xs-offset-3 col-sm-offset-3 col-lg-offset-3">
+                    <h1>{{title}}</h1>
+                    <p>{{details}}</p>
+                    <span>ההמלצה למעלה  תלויה בשעת עידכון המצופים האחרונה</span>
+                </div>
+                <div class="weatherCurrent col-md-3 col-xs-3 col-sm-3 col-lg-3" ng-hide="loadingCity">
+                    <div class="header">
+                        <div class="title">
+                            <div class="cloudsImg"></div>
+                            <div class="temp">&deg</div>
+                        </div>
+                        <div class="lastUpdated"></div>
+                    </div>
+                    <table class="table table-condensed">
+                        <tr>
+                            <td>גובה גל ממוצע</td>
+                            <td class="waves"> מטר</td>
+                        </tr>
+                        <tr>
+                            <td>טמפרטורת מים</td>
+                            <td class="seaTemp">&deg</td>
+                        </tr>
+                        <tr>
+                            <td>עוצמת רוח בקשר</td>
+                            <td>
+                                <span class="speed"> קשר</span>
+                                <span class="direction" ng-style="direction"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>זריחה</td>
+                            <td class="sunrise"></td>
+                        </tr>
+                        <tr>
+                            <td>שקיעה</td>
+                            <td class="sunset"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </script>
     <footer>
         <div class="copyRights">&copy 2015 Israel Waves. All rights reserved.</div>
     </footer>
