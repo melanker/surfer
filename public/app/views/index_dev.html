@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="/public/assets/libs/bootstrap-3.3.4-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/public/assets/libs/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css">
     <script src="/public/assets/libs/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
-    <script src="/public/app/js/main.js"></script>
+    <script src="/public/app/app.js"></script>
     <script src="/public/app/js/services.js"></script>
     <script src="/public/app/js/main_controller.js"></script>
     <script src="/public/app/js/graph_controller.js"></script>
@@ -28,7 +28,16 @@
     <script type="text/javascript" src="/public/assets/libs/less.js-master/dist/less.min.js"></script>
 </head>
 <body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.3";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
     <header>
+        <i class="fa fa-cog fa-spin loading"></i>
         <div class="logo"></div>
         <ul class="nav nav-pills" dir="rtl">
             <li class="Ashdod"><a href="#Ashdod">אשדוד</a></li>
@@ -40,7 +49,7 @@
             <li class="main"><a href="#main">ראשי</a></li>
         </ul>
     </header>
-    <section style="background-image: url(/public/assets/img/main_back.jpg);" id="main" class="parallaxParent parallaxHome">
+    <section id="main" class="parallaxParent parallaxHome">
         <div dir="rtl" class="ashdodStatus jumbotron col-md-6 col-xs-6 col-sm-6 col-lg-6 col-xs-offset-3 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
             <h1>אשדוד</h1>
             <div>גובה גל</div><span class="height"></span><br />
@@ -55,7 +64,6 @@
             <div>שעת עידכון מצוף</div><span class="hour"></span><br />
             <div>טמפרטורת מים</div><span class="temp"><span>&deg</span></span><br />
         </div>
-
         <div class="ashdodStatus"></div>
         <div class="haifaStatus"></div>
         <div id="ashdodChart" class="col-xs-10 col-md-10 col-sm-10 col-lg-10 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"></div>
@@ -68,14 +76,15 @@
     <section style="background-image: url(/public/assets/img/telaviv.jpg);" id="TelAviv" class="parallaxParent"></section>
     <section style="background-image: url(/public/assets/img/ashdod.jpg);" id="Ashdod" class="parallaxParent"></section>
     <script class="hiddenTemplate" type="text/x-custom-template">
+        <i class="fa fa-cog fa-spin loadingCity"></i>
         <div class="container-fluid cityContent" dir="rtl">
-            <div class="row">
-                <div class="jumbotron details col-md-3 col-xs-3 col-sm-3 col-lg-3 col-md-offset-3 col-xs-offset-3 col-sm-offset-3 col-lg-offset-3">
-                    <h1>{{title}}</h1>
-                    <p>{{details}}</p>
+            <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6 col-md-offset-3 col-xs-offset-3 col-sm-offset-3 col-lg-offset-3">
+                <div class="jumbotron details col-md-6 col-xs-6 col-sm-6 col-lg-6">
+                    <h1></h1>
+                    <p></p>
                     <span>ההמלצה למעלה  תלויה בשעת עידכון המצופים האחרונה</span>
                 </div>
-                <div class="weatherCurrent col-md-3 col-xs-3 col-sm-3 col-lg-3" ng-hide="loadingCity">
+                <div class="weatherCurrent col-md-6 col-xs-6 col-sm-6 col-lg-6" ng-hide="loadingCity">
                     <div class="header">
                         <div class="title">
                             <div class="cloudsImg"></div>
@@ -114,6 +123,10 @@
     </script>
     <footer>
         <div class="copyRights">&copy 2015 Israel Waves. All rights reserved.</div>
+        <div class="groupFooter">
+            <div class="fb-like" data-href="https://www.facebook.com/israelwaves.info" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
+            <a href="https://www.facebook.com/israelwaves.info" title="תעקבו אחרנו בפייסבוק"><i class="fa fa-facebook-official followUs"></i></a>
+        </div>
     </footer>
 </body>
 </html>

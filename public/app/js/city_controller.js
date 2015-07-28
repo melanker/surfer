@@ -9,10 +9,11 @@ webApp.City = function(name) {
 webApp.City.prototype.initCity = function() {
     var self = this,
         populateCityTable,
-        prepareReport;
+        prepareReport,
+        weatherCurrentJq = $("#" + self.name + " .weatherCurrent");
 
+    weatherCurrentJq.parent().hide();
     populateCityTable = function() {
-        var weatherCurrentJq = $("#" + self.name + " .weatherCurrent");
         weatherCurrentJq.find(".lastUpdated").text(webApp.formatDate(self.dataObj.dt * 1000) + " " +  webApp.getTime(self.dataObj.dt * 1000));
         weatherCurrentJq.find('.cloudsImg').css("background", "url(/public/assets/img/"+ self.dataObj.weather[0].icon + ".png) no-repeat");
         weatherCurrentJq.find('.temp').html(self.dataObj.main.temp.toPrecision(4) + "&deg");
@@ -124,8 +125,9 @@ webApp.City.prototype.initCity = function() {
 
         detailsJq.find('h1').text(details);
         detailsJq.find('p').text(windLevel + " " + windDirection + "\n" + windText);
+        weatherCurrentJq.parent().fadeIn(600);
+        $("#" + self.name + " i").hide();
     };
-
 
     var issueOpenWeatherRequest = function() {
         webApp.communication.http("/api/" + self.name , "GET").then(function(res) {

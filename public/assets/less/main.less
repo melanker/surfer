@@ -11,6 +11,12 @@ html, body {
   user-select: none;
 }
 
+
+#main {
+  background-image: url(/public/assets/img/main_back.jpg);
+}
+
+
 .parallaxParent {
   height: 120%;
   -webkit-background-size: cover;
@@ -19,6 +25,14 @@ html, body {
   background-size: cover;
 
   .cityContent {
+    &>div {
+      background-color: rgba(0, 0, 0, 0.1);
+      padding: 0;
+      border-radius: 5px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+    }
+
     position: relative;
     top: 20%;
     color: white;
@@ -62,16 +76,21 @@ html, body {
     position: relative;
     height: 20%;
     top: 20%;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
   }
 
   .ashdodStatus, .haifaStatus {
+    padding-right: 10px;
     position: relative;
     color: white;
     top: 10%;
-    background-color: rgba(0, 0, 0, 0);
-    border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
     h1 {
 
     }
@@ -91,10 +110,27 @@ html, body {
 
 }
 
+section {
+  i {
+    font-size: 120px !important;
+    color: white;
+    top: 118px;
+    left: 80px;
+  }
+}
+
 header {
   z-index: 999;
   width: 100%;
   position: fixed;
+
+  i {
+    font-size: 120px !important;
+    position: fixed;
+    color: white;
+    top: 118px;
+    left: 80px;
+  }
 
   .logo {
     position: relative;
@@ -131,11 +167,40 @@ header {
 
 
 footer {
+  font-weight: 100;
+
   background-color: transparent !important;
   z-index: 999;
   width: 100%;
   position: fixed;
   bottom: 13px;
+
+  .copyRights {
+    width: 262px;
+    font-family: almoni-dl-regular,Arial;
+    font-size: 14px;
+    color: white;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  .groupFooter {
+    font-size: 23px;
+
+    float: right;
+    margin-right: 40px;
+
+    i {
+      cursor: pointer;
+      color: #3B5998;
+      position: relative;
+      top: 2px;
+      &:hover {
+        color: white
+      }
+    }
+
+  }
 }
 
 

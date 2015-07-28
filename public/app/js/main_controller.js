@@ -11,9 +11,8 @@ webApp.Main.prototype.setCity = function getData(name) {
         hourJq = $(webApp.idAndClassesMap[name + "Status"] + " .hour"),
         tempJq = $(webApp.idAndClassesMap[name + "Status"] + " .temp");
 
-
     heightJq.text(webApp.charts[name + "Data"].data.hS[webApp.charts[name + "Data"].data.hS.length - 1] + "m" + " - " +
-                webApp.charts[name + "Data"].data.hMax[webApp.charts[name + "Data"].data.hMax.length - 1] + "m");
+                  webApp.charts[name + "Data"].data.hMax[webApp.charts[name + "Data"].data.hMax.length - 1] + "m");
     dateJq.text(webApp.charts[name + "Data"].data.date);
     hourJq.text(webApp.charts[name + "Data"].data.time[webApp.charts[name + "Data"].data.time.length - 1]);
     tempJq.html(webApp.charts[name + "Data"].data.temperature[webApp.charts[name + "Data"].data.temperature.length - 1] + "&deg");
