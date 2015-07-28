@@ -1,82 +1,132 @@
 ﻿<!DOCTYPE html>
 <html lang="he" ng-app="wavesApp">
 <head>
-    <title>גובה הגלים בישראל</title>
+    <title>גובה הגלים </title>
     <meta name="description" content="מידע עדכני על גובה הגלים בישראל כפי שנדגם מהמצופים, מידע על מזג האוויר וכל המידע הנחוץ לגולש ישראלי">
     <meta name="keywords" content="גובה גלים, תחזית, מצוף, גלישה, רוח, ישראל, גלשן">
     <meta charset="utf-8">
     <meta property="og:image" content="http://israelwaves.info/public/assets/img/perfectWave.gif"/>
     <script src="/public/assets/libs/jquery-2.1.3.min.js"></script>
     <script src="/public/assets/libs/highcharts.src.js"></script>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="/public/assets/libs/scrollmagic/greensock/TweenMax.min.js"></script>
+    <script src="/public/assets/libs/scrollmagic/uncompressed/ScrollMagic.js"></script>
+    <!--<script src="/public/assets/libs/scrollmagic/uncompressed/plugins/animation.gsap.js"></script>-->
+    <script src="/public/assets/libs/scrollmagic/greensock/plugins/ScrollToPlugin.min.js"></script>
+    <!--<script src="/public/assets/libs/scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>-->
+    <link rel="stylesheet" href="/public/assets/libs/font-awesome-4.3.0/css/font-awesome.min.css">
+    <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">-->
     <link rel="stylesheet" href="/public/assets/libs/bootstrap-3.3.4-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/public/assets/libs/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css">
     <script src="/public/assets/libs/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
-    <script src="/public/assets/libs/angular.min.js"></script>
-    <script src="/public/assets/libs/angular-route.min.js"></script>
     <script src="/public/app/app.js"></script>
-    <script src="/public/app/controllers/main_controller.js"></script>
-    <script src="/public/app/controllers/home_controller.js"></script>
-    <script src="/public/app/controllers/city_controller.js"></script>
-    <script src="/public/app/services/common_services.js"></script>
-    <script src="/public/app/directives/common_directives.js"></script>
+    <script src="/public/app/js/services.js"></script>
+    <script src="/public/app/js/main_controller.js"></script>
+    <script src="/public/app/js/graph_controller.js"></script>
+    <script src="/public/app/js/city_controller.js"></script>
     <link rel="stylesheet" href="/public/assets/css/reset.css">
     <link rel="stylesheet/less" type="text/css" href="/public/assets/less/main.less" />
     <script type="text/javascript" src="/public/assets/libs/less.js-master/dist/less.min.js"></script>
 </head>
-<body ng-controller="MainCtrl">
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.3";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<div id="content">
-    <nav class="navbar navbar-inverse headerNav">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header col-md-6 col-xs-6 col-sm-6 col-lg-6">
-                <a class="navbar-brand" href="#/home"></a>
-            </div>
-            <div class="status col-md-6 col-xs-6 col-sm-6 col-lg-6" dir="rtl">
-                <div class="ashdodStatus">
-                    <h3>אשדוד</h3>
-                    <div>גובה גל</div><span class="height">{{ashdod.waveRange}}</span><br />
-                    <div>תאריך עידכון מצוף</div><span class="date" dir="ltr">{{ashdod.lastUpdateDate}}</span><br />
-                    <div>שעת עידכון מצוף</div><span class="hour">{{ashdod.lastUpdateHour}}</span><br />
-                    <div>טמפרטורת מים</div><span class="temp">{{ashdod.seaTemp}}<span>&deg</span></span><br />
+<body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.3";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <header>
+        <i class="fa fa-cog fa-spin loading"></i>
+        <div class="logo"></div>
+        <ul class="nav nav-pills" dir="rtl">
+            <li class="Ashdod"><a href="#Ashdod">אשדוד</a></li>
+            <li class="TelAviv"><a href="#TelAviv">תל-אביב</a></li>
+            <li class="Herzliyya"><a href="#Herzliyya">הרצליה</a></li>
+            <li class="Netanya"><a href="#Netanya">נתניה</a></li>
+            <li class="Haifa"><a href="#Haifa">חיפה</a></li>
+            <li class="Nahariya"><a href="#Nahariya">נהריה</a></li>
+            <li class="main"><a href="#main">ראשי</a></li>
+        </ul>
+    </header>
+    <section id="main" class="parallaxParent parallaxHome">
+        <div dir="rtl" class="ashdodStatus jumbotron col-md-6 col-xs-6 col-sm-6 col-lg-6 col-xs-offset-3 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+            <h1>אשדוד</h1>
+            <div>גובה גל</div><span class="height"></span><br />
+            <div>תאריך עידכון מצוף</div><span class="date" dir="ltr"></span><br />
+            <div>שעת עידכון מצוף</div><span class="hour"></span><br />
+            <div>טמפרטורת מים</div><span class="temp"><span>&deg</span></span><br />
+        </div>
+        <div dir="rtl" class="haifaStatus jumbotron col-md-6 col-xs-6 col-sm-6 col-lg-6 col-xs-offset-3 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+            <h1>חיפה</h1>
+            <div>גובה גל</div><span class="height"></span><br />
+            <div>תאריך עידכון מצוף</div><span class="date" dir="ltr"></span><br />
+            <div>שעת עידכון מצוף</div><span class="hour"></span><br />
+            <div>טמפרטורת מים</div><span class="temp"><span>&deg</span></span><br />
+        </div>
+        <div class="ashdodStatus"></div>
+        <div class="haifaStatus"></div>
+        <div id="ashdodChart" class="col-xs-10 col-md-10 col-sm-10 col-lg-10 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"></div>
+        <div id="haifaChart" class="col-xs-10 col-md-10 col-sm-10 col-lg-10 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1"></div>
+    </section>
+    <section style="background-image: url(/public/assets/img/nahariya.jpg);" id="Nahariya" class="parallaxParent"></section>
+    <section style="background-image: url(/public/assets/img/haifa.jpg);" id="Haifa" class="parallaxParent"></section>
+    <section style="background-image: url(/public/assets/img/netanya.jpg);" id="Netanya" class="parallaxParent"></section>
+    <section style="background-image: url(/public/assets/img/herzliyya.jpg);" id="Herzliyya" class="parallaxParent"></section>
+    <section style="background-image: url(/public/assets/img/telaviv.jpg);" id="TelAviv" class="parallaxParent"></section>
+    <section style="background-image: url(/public/assets/img/ashdod.jpg);" id="Ashdod" class="parallaxParent"></section>
+    <script class="hiddenTemplate" type="text/x-custom-template">
+        <i class="fa fa-cog fa-spin loadingCity"></i>
+        <div class="container-fluid cityContent" dir="rtl">
+            <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6 col-md-offset-3 col-xs-offset-3 col-sm-offset-3 col-lg-offset-3">
+                <div class="jumbotron details col-md-6 col-xs-6 col-sm-6 col-lg-6">
+                    <h1></h1>
+                    <p></p>
+                    <span>ההמלצה למעלה  תלויה בשעת עידכון המצופים האחרונה</span>
                 </div>
-                <div class="haifaStatus">
-                    <h3>חיפה</h3>
-                    <div>גובה גל</div><span class="height">{{haifa.waveRange}}</span><br />
-                    <div>תאריך עידכון מצוף</div><span class="date" dir="ltr">{{haifa.lastUpdateDate}}</span><br />
-                    <div>שעת עידכון מצוף</div><span class="hour">{{haifa.lastUpdateHour}}</span><br />
-                    <div>טמפרטורת מים</div><span class="temp">{{haifa.seaTemp}}<span>&deg</span></span><br />
+                <div class="weatherCurrent col-md-6 col-xs-6 col-sm-6 col-lg-6" ng-hide="loadingCity">
+                    <div class="header">
+                        <div class="title">
+                            <div class="cloudsImg"></div>
+                            <div class="temp">&deg</div>
+                        </div>
+                        <div class="lastUpdated"></div>
+                    </div>
+                    <table class="table table-condensed">
+                        <tr>
+                            <td>גובה גל ממוצע</td>
+                            <td class="waves"> מטר</td>
+                        </tr>
+                        <tr>
+                            <td>טמפרטורת מים</td>
+                            <td class="seaTemp">&deg</td>
+                        </tr>
+                        <tr>
+                            <td>עוצמת רוח בקשר</td>
+                            <td>
+                                <span class="speed"> קשר</span>
+                                <span class="direction" ng-style="direction"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>זריחה</td>
+                            <td class="sunrise"></td>
+                        </tr>
+                        <tr>
+                            <td>שקיעה</td>
+                            <td class="sunset"></td>
+                        </tr>
+                    </table>
                 </div>
             </div>
-        </div><!-- /.container-fluid -->
-    </nav>
-    <ul class="nav nav-pills upperNav" dir="rtl">
-        <li class="nahariya" ng-class="{'active': city && city == 'Nahariya'}"><a href="#/cities/Nahariya/">נהריה</a></li>
-        <li class="haifa" ng-class="{'active': city && city == 'Haifa'}"><a href="#/cities/Haifa/">חיפה</a></li>
-        <li class="netanya" ng-class="{'active': city && city == 'Netanya'}"><a href="#/cities/Netanya/">נתניה</a></li>
-        <li class="herzliya" ng-class="{'active': city && city == 'Herzliyya'}"><a href="#/cities/Herzliyya/">הרצליה</a></li>
-        <li class="tlv" ng-class="{'active': city && city == 'TelAviv'}"><a href="#/cities/TelAviv/">תל-אביב</a></li>
-        <li class="ashdod" ng-class="{'active': city && city == 'Ashdod'}"><a href="#/cities/Ashdod/">אשדוד</a></li>
-        <li class="dashboard" ng-class="{'active': !city}"><a href="#/home">ראשי</a></li>
-    </ul>
-    <div class="spacer"></div>
-    <div class="spacer"></div>
-    <div class="container-fluid" ng-view></div>
-</div>
-<div id="footer" dir="ltr">
-    <div class="copyRights">&copy 2015 Israel Waves. All rights reserved.</div>
-    <div class="groupFooter">
-        <div class="fb-like" data-href="https://www.facebook.com/israelwaves.info" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
-        <i class="fa fa-facebook-official followUs"><a href="https://www.facebook.com/israelwaves.info" title="תעקבו אחרנו בפייסבוק"></a></i>
-    </div>
-</div>
+        </div>
+    </script>
+    <footer>
+        <div class="copyRights">&copy 2015 Israel Waves. All rights reserved.</div>
+        <div class="groupFooter">
+            <div class="fb-like" data-href="https://www.facebook.com/israelwaves.info" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
+            <a href="https://www.facebook.com/israelwaves.info" title="תעקבו אחרנו בפייסבוק"><i class="fa fa-facebook-official followUs"></i></a>
+        </div>
+    </footer>
 </body>
 </html>
