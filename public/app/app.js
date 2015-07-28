@@ -69,8 +69,7 @@ $(function () {
         .on("enter", function () {
             initMainCity("ashdod");
             initMainCity("haifa");
-        })
-        .addIndicators();
+        });
 
     $.each(cityArr, function(index, cell) {
         var city = new webApp.City(cell);
@@ -87,8 +86,7 @@ $(function () {
                 }
                 if (city.dataObj) {return;}
                 city.initCity();
-            })
-            .addIndicators();
+            });
     });
 
 
