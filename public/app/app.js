@@ -36,10 +36,6 @@ $(function () {
     };
     cityArr = ["Nahariya", "Haifa", "Netanya", "Herzliyya", "TelAviv", "Ashdod"];
 
-    jqMap.ashdodStatusJq.hide();
-    jqMap.haifaChartJq.hide();
-    jqMap.haifaStatusJq.hide();
-    jqMap.ashdodChartJq.hide();
     // init controller
     controller = new ScrollMagic.Controller({globalSceneOptions: {}});
 

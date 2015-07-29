@@ -12,7 +12,6 @@ webApp.City.prototype.initCity = function() {
         prepareReport,
         weatherCurrentJq = $("#" + self.name + " .weatherCurrent");
 
-    weatherCurrentJq.parent().hide();
     populateCityTable = function() {
         weatherCurrentJq.find(".lastUpdated").text(webApp.formatDate(self.dataObj.dt * 1000) + " " +  webApp.getTime(self.dataObj.dt * 1000));
         weatherCurrentJq.find('.cloudsImg').css("background", "url(/public/assets/img/"+ self.dataObj.weather[0].icon + ".png) no-repeat");
