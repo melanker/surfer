@@ -16,17 +16,17 @@ webApp.City.prototype.initCity = function() {
         weatherCurrentJq.find(".lastUpdated").text(webApp.formatDate(self.dataObj.dt * 1000) + " " +  webApp.getTime(self.dataObj.dt * 1000));
         weatherCurrentJq.find('.cloudsImg').css("background", "url(/public/assets/img/"+ self.dataObj.weather[0].icon + ".png) no-repeat");
         weatherCurrentJq.find('.temp').html(self.dataObj.main.temp.toPrecision(4) + "&deg");
-        self.dataObj.windSpeedKnots = (self.dataObj.wind.speed * 1.94384).toPrecision(4);
+        self.dataObj.windSpeedKnots = parseFloat((self.dataObj.wind.speed * 1.94384).toPrecision(4));
 
         if (self.name === "Haifa" || self.name === "Nahariya") {
-            self.dataObj.waveHeight = webApp.charts.haifaData.data.hS[webApp.charts.haifaData.data.hS.length - 1];
+            self.dataObj.waveHeight = parseFloat(webApp.charts.haifaData.data.hS[webApp.charts.haifaData.data.hS.length - 1]);
             weatherCurrentJq.find(".seaTemp").html(parseFloat(webApp.charts.haifaData.data.temperature[webApp.charts.haifaData.data.temperature.length - 1]) + "&deg");
         } else if (self.name === "Ashdod") {
-            self.dataObj.waveHeight = webApp.charts.ashdodData.data.hS[webApp.charts.ashdodData.data.hS.length - 1];
+            self.dataObj.waveHeight = parseFloat(webApp.charts.ashdodData.data.hS[webApp.charts.ashdodData.data.hS.length - 1]);
             weatherCurrentJq.find(".seaTemp").html(parseFloat(webApp.charts.ashdodData.data.temperature[webApp.charts.ashdodData.data.temperature.length - 1]) + "&deg");
         } else {
-            self.dataObj.waveHeight = ((parseFloat(webApp.charts.ashdodData.data.hS[webApp.charts.ashdodData.data.hS.length -1]) +
-            parseFloat(webApp.charts.haifaData.data.hS[webApp.charts.haifaData.data.hS.length - 1])) / 2).toPrecision(3);
+            self.dataObj.waveHeight = parseFloat(((parseFloat(webApp.charts.ashdodData.data.hS[webApp.charts.ashdodData.data.hS.length -1]) +
+            parseFloat(webApp.charts.haifaData.data.hS[webApp.charts.haifaData.data.hS.length - 1])) / 2).toPrecision(3));
 
             weatherCurrentJq.find(".seaTemp").html(((parseFloat(webApp.charts.ashdodData.data.temperature[webApp.charts.ashdodData.data.temperature.length -1]) +
                 parseFloat(webApp.charts.haifaData.data.temperature[webApp.charts.haifaData.data.temperature.length - 1])) / 2).toPrecision(4) + "&deg");
